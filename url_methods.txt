@@ -1,0 +1,19 @@
+
+GET:- all user display
+http://192.168.1.198:8057/KevinWebService/webapi_UserManagement_GetUserDetails
+
+ADD:-adding the user
+http://192.168.1.198:8057/TestService/webapi_UserManagement_AddUser_Test
+
+
+Edit:- Edit for perticular user
+http://192.168.1.198:8057/TestService/webapi_UserManagement_EditUser_Test
+
+
+
+{"GroupLevel":"Operator","UserName":"Tushar Jadhav1","Department":"Development1","UserStatus":"0","UserID":"Tushar","Remark":"Status Updated1","EmailID":"tushar.jadhav@kevision.in"}
+
+
+Get Group name:-
+http://192.168.1.198:8057/TestService/webapi_UserManagement_GetGroupNames_Test
+{"Responce":{"IsSuccess":"True","StatusCode":200,"StatusMessage":"OK"},"Data":{"GroupNames":["Admin","Supervisor","Operator","QA","Production"]}}

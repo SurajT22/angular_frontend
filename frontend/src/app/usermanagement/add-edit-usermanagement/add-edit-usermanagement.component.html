@@ -1,0 +1,128 @@
+<!-- <p>add-edit-usermanagement works!</p> -->
+<!-- <div *ngIf="successMessage" class="alert alert-success" role="alert">
+    {{ successMessage }}
+  </div> -->
+<form (ngSubmit)="onSubmit()" #userForm="ngForm" class=" row g-3 needs-validation" novalidate>
+
+    <div class="form-floating mb-3">
+        <input type="text" name="userName" class="form-control" id="usermanag[0]" [(ngModel)]="usermanag[0]"
+            placeholder="Enter Username" required #userName="ngModel"
+            [ngClass]="{'is-invalid': userName.invalid && (userName.dirty || userName.touched), 'is-valid': userName.valid}"
+            [readonly]="usermanag.user_type !== 0">
+        <label for="usermanag[0]" for="floatingInputGrid">User Name</label>
+        <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="invalid-feedback">
+            <div *ngIf="userName.errors?.['required']">
+                User Name is required.
+            </div>
+        </div>
+        <div *ngIf="userName.valid" class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+    
+    <div class="row g-2">
+        <!-- <div class="col-sm-4">
+            <div class="form-floating mb-3">
+                <input type="text" name="user_type" class="form-control" id="usermanag[1]" [(ngModel)]="usermanag[1]"
+                    placeholder="Enter User Type" required #user_type="ngModel"
+                    [ngClass]="{'is-invalid': user_type.invalid && (user_type.dirty || user_type.touched), 'is-valid': user_type.valid}">
+                <label for="usermanag[1]" for="floatingInputGrid">User Type</label>
+                <div *ngIf="user_type.invalid && (user_type.dirty || user_type.touched)" class="invalid-feedback">
+                    <div *ngIf="user_type.errors?.['required']">
+                        User Type is required.
+                    </div>
+                </div>
+                <div *ngIf="user_type.valid" class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+        </div> -->
+        <div class="col-sm-4">
+            <div class="form-floating mb-3">
+              <select class="form-select" name="user_type" [(ngModel)]="usermanag[1]" required #user_type="ngModel"
+                      [ngClass]="{'is-invalid': user_type.invalid && (user_type.dirty || user_type.touched), 'is-valid': user_type.valid}">
+                <option *ngFor="let group of GroupList" [value]="group">{{ group }}</option>
+              </select>
+              <label for="usermanag[1]" for="floatingInputGrid">User Type</label>
+              <div *ngIf="user_type.invalid && (user_type.dirty || user_type.touched)" class="invalid-feedback">
+                <div *ngIf="user_type.errors?.['required']">
+                  User Type is required.
+                </div>
+              </div>
+              <div *ngIf="user_type.valid" class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+          </div>
+          
+        <div class="col-md">
+            <div class="form-floating mb-3">
+                <input type="text" name="full_name" class="form-control" id="usermanag[2]" [(ngModel)]="usermanag[2]"
+                    placeholder="Enter User Type" required #full_name="ngModel"
+                    [ngClass]="{'is-invalid': full_name.invalid && (full_name.dirty || full_name.touched), 'is-valid': full_name.valid}">
+                <label for="usermanag[2]" for="floatingInputGrid">Full Name</label>
+                <div *ngIf="full_name.invalid && (full_name.dirty || full_name.touched)" class="invalid-feedback">
+                    <div *ngIf="full_name.errors?.['required']">
+                        Full Name is required.
+                    </div>
+                </div>
+                <div *ngIf="full_name.valid" class="valid-feedback">
+                    Looks good!
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" name="department" class="form-control" id="usermanag[3]" [(ngModel)]="usermanag[3]"
+            placeholder="Enter Department" required #department="ngModel"
+            [ngClass]="{'is-invalid': department.invalid && (department.dirty || department.touched), 'is-valid': department.valid}">
+        <label for="usermanag[3]" for="floatingInputGrid">Department</label>
+        <div *ngIf="department.invalid && (department.dirty || department.touched)" class="invalid-feedback">
+            <div *ngIf="department.errors?.['required']">
+                Department is required.
+            </div>
+        </div>
+        <div *ngIf="department.valid" class="valid-feedback">
+            Looks good!
+        </div>
+    </div>
+
+    <div *ngIf="usermanag.user_type == 0">
+        <div class="form-floating mb-3">
+            <input type="password" name="password" class="form-control" id="usermanag[4]" [(ngModel)]="usermanag[4]"
+                placeholder="Enter Password" required #password="ngModel"
+                [ngClass]="{'is-invalid': password.invalid && (password.dirty || password.touched), 'is-valid': password.valid}">
+            <label for="usermanag[4]" for="floatingInputGrid">Password</label>
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="invalid-feedback">
+                <div *ngIf="password.errors?.['required']">
+                    Password is required.
+                </div>
+            </div>
+            <div *ngIf="department.valid" class="valid-feedback">
+                Looks good!
+            </div>
+        </div>
+    </div>
+
+
+    <div class="form-floating mb-3">
+        <select class="form-select" name="selectedUserStatus" id="userStatus" [(ngModel)]="selectedUserStatus">
+            <option *ngFor="let option of userStatusOptions" [value]="option.value">{{ option.label }}</option>
+        </select>
+        <label for="userStatus">User Status</label>
+    </div>
+    <div *ngIf="userForm.submitted && userForm.invalid" class="alert alert-danger" role="alert">
+        Please fill in all required fields.
+    </div>
+    <button data-bs-dismiss="modal" (click)="addUserProfile()" *ngIf="usermanag.user_type==0" class="btn btn-primary"
+        type="submit" [disabled]="!userForm.valid">
+
+        Add
+    </button>
+
+    <button data-bs-dismiss="modal" (click)="updateUserProfile()" *ngIf="usermanag.user_type!=0"
+        class="btn btn-primary">
+        Update
+    </button>
+</form>
