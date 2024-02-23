@@ -9,14 +9,18 @@ import { ShowUsermanagementComponent } from './usermanagement/show-usermanagemen
 import { AddEditUsermanagementComponent } from './usermanagement/add-edit-usermanagement/add-edit-usermanagement.component'; 
 import { HttpClientModule } from '@angular/common/http'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
-import { SuccessMessageSourceService } from './success-message-source.service'; 
+import { SuccessMessageSourceService } from './success-message-source.service';
+import { HomeComponent } from './home/home.component';
+import { SidebarComponent } from './sidebar/sidebar.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     UsermanagementComponent,
     ShowUsermanagementComponent,
-    AddEditUsermanagementComponent
+    AddEditUsermanagementComponent,
+    HomeComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
