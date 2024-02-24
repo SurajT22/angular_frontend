@@ -26,29 +26,13 @@
             ],
             "styles": [
               "src/styles.css",
-              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./src/assets/css/core/libs.min.css",
-              "./src/assets/vendor/aos/dist/aos.css",
-              "./src/assets/css/dark.min.css",
-              "../src/assets/css/customizer.min.css",
-              "./src/assets/css/rtl.min.css",
-              "./src/assets/css/hope-ui.min.css",
-              "./src/assets/css/custom.min.css"
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+              
             ],
             "scripts": [
               "./node_modules/bootstrap/dist/js/bootstrap.js",
-              "./node_modules/jquery/dist/jquery.js",
-              "./src/assets/js/core/libs.min.js",
-              "./src/assets/js/core/external.min.js",
-              "./src/assets/js/charts/widgetcharts.js",
-              "./src/assets/js/charts/vectore-chart.js",
-              "./src/assets/js/charts/dashboard.js",
-              "./src/assets/js/plugins/fslightbox.js",
-              "./src/assets/js/plugins/setting.js",
-              "./src/assets/js/plugins/slider-tabs.js",
-              "./src/assets/js/plugins/form-wizard.js",
-              "./src/assets/vendor/aos/dist/aos.js",
-              "./src/assets/js/hope-ui.js"
+              "./node_modules/jquery/dist/jquery.js"
+             
             ]
           },
           "configurations": {
@@ -57,7 +41,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",

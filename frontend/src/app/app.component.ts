@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ViewEncapsulation  } from '@angular/core';
 import { NgModel } from '@angular/forms'; 
 // import "../src/assets/css/custom.min.css?v=4.0.0";
 // import "../src/assets/css/hope-ui.min.css?v=4.0.0";
@@ -7,7 +7,8 @@ import { NgModel } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
   // public isCollapsed = true;

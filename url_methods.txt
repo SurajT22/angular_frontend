@@ -20,3 +20,4 @@ http://192.168.1.198:8057/TestService/webapi_UserManagement_GetGroupNames_Test
 
 Delete:-
 http://127.0.0.1:8057/TestService/webapi_UserManagement_DeleteUser_Test?UserID=abcd
+http://192.168.1.198:8057/TestService/webapi_UserManagement_DeleteUser_Test?UserID=tushar123

@@ -11,7 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { SuccessMessageSourceService } from './success-message-source.service';
 import { HomeComponent } from './home/home.component';
-import { SidebarComponent } from './sidebar/sidebar.component'; 
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { FooterComponent } from './footer/footer.component'; 
+
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     ShowUsermanagementComponent,
     AddEditUsermanagementComponent,
     HomeComponent,
-    SidebarComponent
+    SidebarComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
