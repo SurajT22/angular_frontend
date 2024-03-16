@@ -1,0 +1,16 @@
+.side-btn:focus{
+    background-color: #2d78e8 !important;
+    border-color: transparent;
+    color: #fff !important;
+}
+
+.filter-card,.grid-card{
+    height: calc(100vh - 180px) !important;
+}
+
+.grid-card{
+    .card-body{
+        display: flex;
+        height: inherit;
+    }
+}

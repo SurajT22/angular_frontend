@@ -1,0 +1,9 @@
+<app-page-header [headerLabel]="'Edit User'"></app-page-header>
+<app-user-account-form
+    [user]="user"
+    (btnClick)="editUser($event)"
+    [isUpdate]="true"
+    [btnLabel]="'Edit'"
+    (btnChangePassClick)="changeUserPassword($event)"
+    (btnForgetPassClick)="forgetPassword($event)"
+></app-user-account-form>

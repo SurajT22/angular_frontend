@@ -1,0 +1,36 @@
+$primary: #2d78e8;
+$secondary: #464A53;
+$white: #fff;
+$red: #f82a3b;
+$input-label: #4A4A4A;
+$input-disabled:#f9f9f9;
+$input-border: #dbdbdb;
+$form-border: #e6e6e6;
+$divider-border: #dcdcdc;
+$input-hover-border: #b5b5b5;
+$input-focus-border: #2D78E8;
+$input-icon: #cfcfcf;
+$cancel-btn-hover: #eeeeee;
+$calnder-week-color: #a0aec0;
+$bg-drop-hover: #f5f5f5;
+$profile-divider: #dedede;
+
+$bg-primary: #2d78e8;
+$bg-body: #fff;//#f2f9ff;
+
+$text-body: #4a4a4a;
+$text-primary: #2d78e8;
+$text-navbar: #ffffff;
+
+
+//Nav bar theme
+$navbar_left_bg : #1760D6;
+$navbar_left_select_bg : #0F24D4;
+$navbar_left_select_text : #fff;
+$navbar_left_text : #fff;
+$navbar_left_item_hover_bg : #4163eb;
+$navbar_top_bg : #ffffff;
+@mixin navbar_gradient_bg {
+    background-color: $navbar_left_bg;
+    background-image: linear-gradient(0deg, #1C45EF, #1760D6);
+  }

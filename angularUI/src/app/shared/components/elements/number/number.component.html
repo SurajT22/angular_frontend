@@ -1,0 +1,40 @@
+<div class="field">
+  <label
+    >{{ label }}
+    @if (required) {
+      <span class="text-danger text-bold"> * </span>
+    }
+    @if (info != null && info != "") {
+      <a href="javascript:void(0);" class="pt-2" [tooltip]="info" [adaptivePosition]="true">
+        <i class="mdi mdi-information text-primary px-0 fs-6"></i>
+      </a>
+    }
+  </label>
+  <div class="input-control">
+    <input
+      class="input" 
+      type="number"
+      [(ngModel)]="value"
+      [value]="value"
+      [min]="min"
+      [max]="max"
+      #number="ngModel"
+      name="{{ uniqueId }}"
+      [required]="required"
+      (ngModelChange)="valueChange.emit(value)"
+    />
+    @if (number.invalid && (number.dirty || number.touched)) {
+      <div class="error-msg-text">
+        @if (number.hasError("required")) {
+          <span>This field is required.</span>
+        }
+        @if (number.hasError("max")) {
+          <span>Maximum {{number.errors!["max"].max}}.</span>
+        }
+        @if (number.hasError("min")) {
+          <span>Minimum {{number.errors!["min"].min}}.</span>
+        }
+      </div>
+    }
+  </div>
+</div>

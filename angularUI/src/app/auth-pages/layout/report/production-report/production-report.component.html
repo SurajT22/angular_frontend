@@ -1,0 +1,74 @@
+<app-page-header [headerLabel]="'Production Report'"></app-page-header>
+<div class="mx-2">
+    <form #productionReportForm="ngForm">
+        <div class="form-fieldset">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                    <div class="field">
+                        <label>
+                            Report Type
+                        </label>
+                        <app-ng-select class="col-12" [items]="reportTypeList" [(value)]="productionreport.ReportType"
+                            [bindLabel]="'label'" [bindValue]="'value'" [required]="true">
+                        </app-ng-select>
+                    </div>
+                </div>
+                @if(productionreport.ReportType == reportTypeEnum.SERAILIZATION){
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                    <div class="field">
+                        <label>
+                            Report View
+                        </label>
+                        <app-ng-select class="col-12" [items]="reportViewList" [(value)]="productionreport.ReportView"
+                            [bindValue]="'value'" [bindLabel]="'label'" [required]="true"></app-ng-select>
+                    </div>
+                </div>
+                }
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4 mt-3">
+                    <app-form-btn-pr [btnLabel]="'View'" (btnClick)="onBtnClick()"></app-form-btn-pr>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                    <div class="card filter-card">
+                        <div class="card-body">
+                            @if(productionreport.ReportType == reportTypeEnum.PARENTCHILD){
+                            <app-pcr-filter-form></app-pcr-filter-form>
+                            }
+                            @else if (productionreport.ReportType == reportTypeEnum.SERAILIZATION &&
+                            productionreport.ReportView == reportViewEnum.PODELIVERY) {
+                            <app-po-filter-form></app-po-filter-form>
+                            }
+                            @else if (productionreport.ReportType == reportTypeEnum.SERAILIZATION &&
+                            productionreport.ReportView == reportViewEnum.PRODUCT) {
+                            <app-product-filter-form></app-product-filter-form>
+                            }
+                            @else if(productionreport.ReportType == reportTypeEnum.SERAILIZATION &&
+                            productionreport.ReportView == reportViewEnum.BATCH ){
+                            <app-batch-filter-form></app-batch-filter-form>
+                            }
+                            <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                                <app-checkbox [label]="'WareHouse Report'"
+                                    [(value)]="productionreport.wareHouseReport"></app-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8 col-lg-8 col-sm-8">
+                    <div class="card grid-card">
+                        <div class="card-body">
+                            <app-list-production-report style="height: 100%;"
+                                [reportType]="productionreport.ReportType"></app-list-production-report>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end mt-2" style="justify-content: end">
+                    <div>
+                        <app-form-btn-pr [btnLabel]="'Export'" (btnClick)="onBtnClick()"></app-form-btn-pr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

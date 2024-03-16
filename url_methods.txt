@@ -13,11 +13,114 @@ http://192.168.1.198:8057/TestService/webapi_UserManagement_EditUser_Test
 
 {"GroupLevel":"Operator","UserName":"Tushar Jadhav1","Department":"Development1","UserStatus":"0","UserID":"Tushar","Remark":"Status Updated1","EmailID":"tushar.jadhav@kevision.in"}
 
+new edit
+{"UserType":"0","UserName":"Tushar Jadhav yxzDCs","Department":"Development","UserStatus":"0","UserID":"Tushar12","Remark":"Status Updated","EmailID":"tushar.jadhav@kevision.in"}
+
 
 Get Group name:-
 http://192.168.1.198:8057/TestService/webapi_UserManagement_GetGroupNames_Test
 {"Responce":{"IsSuccess":"True","StatusCode":200,"StatusMessage":"OK"},"Data":{"GroupNames":["Admin","Supervisor","Operator","QA","Production"]}}
 
+
 Delete:-
 http://127.0.0.1:8057/TestService/webapi_UserManagement_DeleteUser_Test?UserID=abcd
 http://192.168.1.198:8057/TestService/webapi_UserManagement_DeleteUser_Test?UserID=tushar123
+
+
+Security Policy:-
+Get Security Policy:-
+http://192.168.1.198:8057/TestService/webapi_Usermanagement_GetSecurityPolicy_Test
+Edit Security Policy:-
+http://192.168.1.198:8057/TestService/webapi_Usermanagement_UpdateSecurityPolicy_Test
+
+{"PasswordLength":"324","ExpiryDays":"43","UserDays":"3","LockoutAttempts":"32","DuplicatePassword":"342","UppercaseLetters":"1","Numbers":"1","Symbols":"1","AutoLogoutDuration":"12","AutoLogout":"1"}
+
+User Rights:-
+Get the User Rights
+http://192.168.1.179:8090/KevinWebService/webapi_Usermanagment_UserRights
+http://192.168.1.179:8090/TestWebServices/webapi_Usermanagment_UserRights_Test?selecteduser=Admin
+http://192.168.1.179:8090/TestWebServices/webapi_Usermanagment_UserRights_Test
+
+{"Response":{"IsSuccess":"true","Response code":200,"Message":"Successfull"},"Response Data":{"User Rights":[{"Allow\\Deny":true,"Window Name":"Inspection"},{"Allow\\Deny":true,"Window Name":"Recipe"},{"Allow\\Deny":true,"Window Name":"Batch Detail"},{"Allow\\Deny":true,"Window Name":"Teach"},{"Allow\\Deny":true,"Window Name":"User Management"},{"Allow\\Deny":true,"Window Name":"Camera Settings"},{"Allow\\Deny":true,"Window Name":"Hardware Settings"},{"Allow\\Deny":true,"Window Name":"Printer Settings"},{"Allow\\Deny":true,"Window Name":"Server Settings"},{"Allow\\Deny":true,"Window Name":"Third Party Settings"},{"Allow\\Deny":true,"Window Name":"System Settings"},{"Allow\\Deny":true,"Window Name":"Test IO"},{"Allow\\Deny":true,"Window Name":"Fault Images"},{"Allow\\Deny":true,"Window Name":"Production Report"},{"Allow\\Deny":true,"Window Name":"Audit Report"},{"Allow\\Deny":true,"Window Name":"Help"},{"Allow\\Deny":true,"Window Name":"Info"},{"Allow\\Deny":true,"Window Name":"Reconciliation"},{"Allow\\Deny":true,"Window Name":"Client Registration"},{"Allow\\Deny":true,"Window Name":"server_access"},{"Allow\\Deny":true,"Window Name":"batch_access"},{"Allow\\Deny":false,"Window Name":"batch_upload_access"}],"UserName":"Admin","Group Level":0}}
+
+update user Rights:-
+http://127.0.0.1:8090/KevinWebService/webapi_Usermanagment_UserRights_UpdateUserRights
+
+{
+        "User_Rights": {
+            "Inspection": true,
+            "Recipe": true,
+            "Batch_Detail": true,
+            "Teach": true,
+            "User_Management": true,
+            "Camera_Settings": true,
+            "Hardware_Settings": true,
+            "Printer Settings": true,
+            "Server_Settings": true,
+            "Third_Party_Settings": false,
+            "System_Settings": true,
+            "Test_IO": true,
+            "Fault_Images": true,
+            "Production_Report": true,
+            "Audit_Report": true,
+            "Help": true,
+            "Info": true,
+            "Reconciliation": true,
+            "Client_Registration": true,
+            "server_access": true,
+            "batch_access": true,
+            "batch_upload_access": false
+        },
+        "UserName": "Admin"
+    }
+
+Get Groupconfiguration:-
+http://192.168.1.198:8057/TestService/webapi_UserManagement_GetGroupConfig_Test
+
+Add Groupconfiguration:-
+http://192.168.1.198:8057/TestService/webapi_UserManagement_AddGroupConfig_Test
+
+
+Registration access:-
+
+Post Register User for access:-
+http://192.168.1.180:8088/TestServices/webapi_Clientregistration_RegistrationAccess_Test
+
+{
+    "ClientIP":"192.168.1.180"
+}
+
+http://127.0.0.1:8088/TestServices/webapi_Clientregistration_AddRegistration_Test    (POST)
+http://127.0.0.1:8088/TestServices/webapi_Clientregistration_GetRegistrationDetails_Test   
+(GET)
+
+Json Request for AddRegistration:-
+
+
+{
+   "ip":"192.168.1.244",
+   "mac_id":"6C-4B-90-30-E2-83",
+   "line_number":"L1",
+   "plant_name":"P1",
+   "location":"vatva",
+   "status":"Register",
+   "Date_Time":"24-01-20 12:29:31",
+   "packaging_Level":"0",
+   "regulatory":"BAHRAIN",
+   "system_name":"P&I",
+   "System_Model":"KPI-TBX1"
+}
+
+http://127.0.0.1:8088/TestServices/webapi_Clientregistration_UpdateRegistration_Test   (PUT)
+
+Reset Password:-
+http://192.168.1.180:8088/TestServices/webapi_Usermanagement_ResetPassword_Update_Test    (Put)
+
+
+json request :-
+{
+    "UserName": "Admin",
+    "NewPassword": "A@2",
+    "OldPassword": "A@1"
+}
+

@@ -1,0 +1,116 @@
+<!-- <div class="wrapper">
+<app-nav-bar></app-nav-bar>
+</div>
+<router-outlet></router-outlet> -->
+
+<div
+  class="test_body show"
+  data-layout-config='{"leftSideBarTheme":"dark","layoutBoxed":false, "leftSidebarCondensed":false, "leftSidebarScrollable":false,"darkMode":false, "showRightSidebarOnStart": true}'
+  style="visibility: visible"
+>
+  <div class="wrapper">
+    <app-nav-bar [navbarItems]="navbarItems"></app-nav-bar>
+    <div class="content-page">
+      <div class="content">
+        <!-- Topbar Start -->
+        <div class="navbar-custom">
+          <button class="button-menu-mobile open-left">
+            <i class="mdi mdi-menu"></i>
+          </button>
+          <div class="top-navbar-list">
+            <div>
+              <!-- <button class="notification-btn" [routerLink]="'notification'">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  aria-hidden="true"
+                  role="img"
+                  class="iconify iconify--feather"
+                  width="1.5em"
+                  height="1.5em"
+                  preserveAspectRatio="xMidYMid meet"
+                  viewBox="0 0 24 24"
+                  data-icon="feather:bell"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9m-4.27 13a2 2 0 0 1-3.46 0"
+                  ></path>
+                </svg>
+                <span
+                  [class]="
+                    (newNotification ? '' : 'd-none') + ' new-indicator pulsate'
+                  "
+                ></span>
+              </button> -->
+            </div>
+            <div class="d-table">
+              <div
+                class="v-avatar dropdown-toggle d-table-cell"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <div
+                  class="avatar-container avatar-xs"
+                  [innerHTML]="user | profileOrName"
+                ></div>
+              </div>
+
+              <ul class="dropdown-menu dropdown-menu-end main-navbar-drop">
+                <div class="dropdown-item-label">
+                  <div class="meta">
+                    <span>SIGNED IN AS {{ user | fullname }}</span>
+                  </div>
+                </div>
+                <hr />
+
+                <li [routerLink]="['profile']">
+                  <div class="dropdown-item is-media">
+                    <div class="icon">
+                      <i aria-hidden="true" class="lni lni-user"></i>
+                    </div>
+                    <div class="meta">
+                      <span>Profile</span>
+                    </div>
+                  </div>
+                </li>
+                <li (click)="openChangePasswordDialog()">
+                  <div class="dropdown-item is-media">
+                    <div class="icon">
+                      <i aria-hidden="true" class="lni lni-lock-alt"></i>
+                    </div>
+                    <div class="meta">
+                      <span>Change Password</span>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="dropdown-item is-media" (click)="logout()">
+                    <div class="icon">
+                      <i aria-hidden="true" class="uil uil-sign-out-alt"></i>
+                    </div>
+                    <div class="meta">
+                      <span>Sign Out</span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="main-wapper-div">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-confirm-dialogbox></app-confirm-dialogbox>
+<app-change-password-dialog></app-change-password-dialog>
+<app-forget-password-dialog></app-forget-password-dialog>
+<app-authenticate-dialog></app-authenticate-dialog>

@@ -1,0 +1,16 @@
+<div
+  class="form-header pb-0 mt-1 mb-0 border-bottom-0 border-top border-color-gray"
+>
+  <div class="form-header-inner" style="justify-content: flex-end">
+    <div class="right">
+      <div class="two-button">
+        <app-form-btn-back></app-form-btn-back>
+        <app-form-btn-pr
+          [btnLabel]="btnLabel"
+          (btnClick)="onBtnClick()"
+          [skipFormValidation]="skipFormValidation"
+        ></app-form-btn-pr>
+      </div>
+    </div>
+  </div>
+</div>

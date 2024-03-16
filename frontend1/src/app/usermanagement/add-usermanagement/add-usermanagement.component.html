@@ -1,0 +1,136 @@
+<!-- <p>add-edit-usermanagement works!</p> -->
+<!-- <div *ngIf="successMessage" class="alert alert-success" role="alert">
+    {{ successMessage }}
+  </div> -->
+
+<div class="stat-cards-item">
+    <div class="col-md-12 order-md-1  rounded box-shadow users-table">
+        <h4 class="mb-3 text-center">User ADD</h4>
+        <hr class="mb-4">
+        <form #userForm="ngForm" class=" row stat-cards g-3 needs-validation" novalidate>
+
+            <div class="form-floating mb-3">
+                <input type="text" name="userName" class="form-input form-control" id="usermanag.userName"
+                    [(ngModel)]="usermanag.UserID" placeholder="Enter Username" required #userName="ngModel"
+                    [ngClass]="{'is-invalid': userName?.invalid && (userName?.dirty || userName?.touched), 'is-valid': userName?.valid}">
+                <label for="usermanag.userName" for="floatingInputGrid">User Name</label>
+                <div *ngIf="userName?.invalid && (userName?.dirty || userName?.touched)" class="invalid-feedback">
+                    <div *ngIf="userName?.errors?.['required']">
+                        User Name is required.
+                    </div>
+                </div>
+                <div *ngIf="userName?.valid" class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            
+            
+            
+
+            <div class="row g-2">
+                <div class="col-sm-4">
+                    <div class="form-floating mb-3">
+                        <select class="form-select" name="user_type" [(ngModel)]="usermanag.UserType" required
+                            #user_type="ngModel"
+                            [ngClass]="{'is-invalid': user_type.invalid && (user_type.dirty || user_type.touched), 'is-valid': user_type.valid}">
+                            <option *ngFor="let group of GroupList" [value]="group.value">{{ group.label }}</option>
+                        </select>
+                        <label for="usermanag.UserType" for="floatingInputGrid">User Type</label>
+                        <div *ngIf="user_type.invalid && (user_type.dirty || user_type.touched)" class="invalid-feedback">
+                            <div *ngIf="user_type.errors?.['required']">
+                                User Type is required.
+                            </div>
+                        </div>
+                        <div *ngIf="user_type.valid" class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="col-md">
+                    <div class="form-floating mb-3">
+                        <input type="text" name="full_name" class="form-input form-control" id="usermanag.UserName"
+                            [(ngModel)]="usermanag.UserName" placeholder="Enter User Type" required #full_name="ngModel"
+                            [ngClass]="{'is-invalid': full_name.invalid && (full_name.dirty || full_name.touched), 'is-valid': full_name.valid}">
+                        <label for="usermanag.UserName" for="floatingInputGrid">Full Name</label>
+                        <div *ngIf="full_name.invalid && (full_name.dirty || full_name.touched)" class="invalid-feedback">
+                            <div *ngIf="full_name.errors?.['required']">
+                                Full Name is required.
+                            </div>
+                        </div>
+                        <div *ngIf="full_name.valid" class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-floating mb-3">
+                <input type="text" name="department" class="form-control form-input" id="usermanag.Department"
+                    [(ngModel)]="usermanag.Department" placeholder="Enter Department" required #department="ngModel"
+                    [ngClass]="{'is-invalid': department.invalid && (department.dirty || department.touched), 'is-valid': department.valid}">
+                <label for="usermanag.Department" for="floatingInputGrid">Department</label>
+                <div *ngIf="department.invalid && (department.dirty || department.touched)" class="invalid-feedback">
+                    <div *ngIf="department.errors?.['required']">
+                        Department is required.
+                    </div>
+                </div>
+                <div *ngIf="department.valid" class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            
+            <div class="form-floating mb-3">
+                <input type="text" name="emailid" class="form-control form-input" id="usermanag.EmailID"
+                    [(ngModel)]="usermanag.EmailID" placeholder="Enter EmailID" required #emailid="ngModel"
+                    [ngClass]="{'is-invalid': emailid.invalid && (emailid.dirty || emailid.touched), 'is-valid': emailid.valid}">
+                <label for="usermanag.EmailID" for="floatingInputGrid">EmailID</label>
+                <div *ngIf="emailid.invalid && (emailid.dirty || emailid.touched)" class="invalid-feedback">
+                    <div *ngIf="emailid.errors?.['required']">
+                        EmailID is required.
+                    </div>
+                </div>
+                <div *ngIf="emailid.valid" class="valid-feedback">
+                    Looks good!
+                </div>
+            </div>
+            
+
+            <div>
+                <div class="form-floating mb-3">
+                    <input type="password" name="password" class="form-control form-input" id="usermanag[4]"
+                        [(ngModel)]="usermanag.password" placeholder="Enter Password" required #password="ngModel"
+                        [ngClass]="{'is-invalid': password.invalid && (password.dirty || password.touched), 'is-valid': password.valid}">
+                    <label for="usermanag.password" for="floatingInputGrid">Password</label>
+                    <div *ngIf="password.invalid && (password.dirty || password.touched)" class="invalid-feedback">
+                        <div *ngIf="password.errors?.['required']">
+                            Password is required.
+                        </div>
+                    </div>
+                    <div *ngIf="password.valid" class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+            </div>
+            
+
+
+            <div class="form-floating mb-3">
+                <select class="form-select" name="selectedUserStatus" id="userStatus" [(ngModel)]="selectedUserStatus">
+                    <option *ngFor="let option of userStatusOptions" [value]="option.value">{{ option.label }}</option>
+                </select>
+                <label for="userStatus">User Status</label>
+            </div>
+            
+            <div *ngIf="userForm.submitted && userForm.invalid" class="alert alert-danger" role="alert">
+                Please fill in all required fields.
+            </div>
+            <button data-bs-dismiss="modal" (click)="addUserProfile()" class="btn btn-primary">
+
+                Add
+            </button>
+
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,253 @@
+<!-- <div *ngFor="let right of userRightsData['User Rights']">
+    <p>Window Name: {{ right['Window Name'] }}</p>
+    <p>Allow/Deny: {{ right['Allow\\Deny'] ? 'Allow' : 'Deny' }}</p>
+    <hr>
+  </div> -->
+<div class="stat-cards-item">
+    <div class="col-md-12 order-md-1  rounded box-shadow users-table">
+        <h4 class="mb-3 text-center">User Rights</h4>
+        <hr class="mb-4">
+        <form class="row g-3 stat-cards">
+            <div class="row">
+                <div class="col-lg-1 mt-2">
+                    <img src="/assets/images/icons/INSPECTION.png" alt="Inspection" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" name="Inspection" class="custom-control-input me-2" [checked]="userRightsData['Inspection']" (change)="toggleInspection($event)" id="Inspection">
+
+                    <label for="Inspection" class="form-check-label">Inspection</label>
+                </div>
+
+                <!-- Repeat the above structure for each item -->
+
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/SYSTEM SETTING.png" alt="SYSTEM SETTING" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" name="System_Settings" class="custom-control-input me-2" [checked]="userRightsData['System_Settings']" (change)="toggleSystem_Settings($event)"
+                        id="System_Settings">
+                    <label for="System_Settings" class="form-check-label">System Settings</label>
+                </div>
+
+                <!-- Repeat the above structure for each item -->
+            </div>
+
+            <div class="row">
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/RECIPE.png" alt="Recipe" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2" [checked]="userRightsData['Recipe']" (change)="toggleRecipe($event)"
+                        id="Recipe">
+                    <label for="Recipe" class="form-check-label">Recipe</label>
+                </div>
+
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/TEST INPUT OUTPUT.png" alt="Test_IO" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2" [checked]="userRightsData['Test_IO']" (change)="toggleTest_IO($event)"
+                        id="Test_IO">
+                    <label for="Test_IO" class="form-check-label">Test_IO</label>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/BATCH DETAILS 48.png" alt="BATCH DETAILS" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2" [checked]="userRightsData['Batch_Detail']" (change)="toggleBatch_Detail($event)"
+                        id="Batch_Detail">
+                    <label for="Batch_Detail" class="form-check-label">Batch Detail</label>
+                </div>
+
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/FAULT IMAGES.png" alt="Fault_Images" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2" [checked]="userRightsData['Fault_Images']" (change)="toggleFault_Images($event)"
+                        id="Fault_Images">
+                    <label for="Fault_Images" class="form-check-label">Fault_Images</label>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/TEACH.png" alt="Teach" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2" [checked]="userRightsData['Teach']" (change)="toggleTeach($event)"
+                        id="Teach">
+                    <label for="Teach" class="form-check-label">Teach</label>
+                </div>
+
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/PRODUCTION REPORT.png" alt="Production_Report" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2" [checked]="userRightsData['Production_Report']" (change)="toggleProduction_Report($event)"
+                        id="Production_Report">
+                    <label for="Production_Report" class="form-check-label">Production_Report</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/USER MANAGEMENT.png" alt="USER MANAGEMENT" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2" [checked]="userRightsData['User_Management']" (change)="toggleUser_Management($event)"
+                        id="User_Management">
+                    <label for="User_Management" class="form-check-label">User_Management</label>
+                </div>
+
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/AUDIT REPORT.png" alt="AUDIT REPORT" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2" [checked]="userRightsData['Audit_Report']" (change)="toggleAudit_Report($event)"
+                        id="Audit_Report">
+                    <label for="Audit_Report" class="form-check-label">AUDIT REPORT</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/CAMERA SETTING.png" alt="CAMERA SETTING" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2" [checked]="userRightsData['Camera_Settings']" (change)="toggleCamera_Settings($event)"
+                        id="Camera_Settings">
+                    <label for="Camera_Settings" class="form-check-label">Camera_Settings</label>
+                </div>
+
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/HELP.png" alt="HELP" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2" [checked]="userRightsData['Help']" (change)="toggleHelp($event)"
+                        id="Help">
+                    <label for="Help" class="form-check-label">AUDIT REPORT</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/HARDWARE SETTING.png" alt="HARDWARE SETTING" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2" [checked]="userRightsData['Hardware_Settings']" (change)="toggleHardware_Settings($event)"
+                        id="Hardware_Settings">
+                    <label for="Hardware_Settings" class="form-check-label">Hardware Settings</label>
+                </div>
+
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/SYSTEM INFO.png" alt="SYSTEM INFO" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2" [checked]="userRightsData['Info']" (change)="toggleInfo($event)"
+                        id="Info">
+                    <label for="Info" class="form-check-label">Info</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/PRINTER SETTING.png" alt="PRINTER SETTING" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2" [checked]="userRightsData['Printer_Settings']" (change)="togglePRINTER_SETTING($event)"
+                        id="PRINTER_SETTING">
+                    <label for="PRINTER SETTING" class="form-check-label">PRINTER SETTING</label>
+                </div>
+
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/RECONCILLATION.png" alt="RECONCILLATION" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2" [checked]="userRightsData['Reconciliation']" (change)="toggleReconciliation($event)"
+                        id="Reconciliation">
+                    <label for="Reconciliation" class="form-check-label">Reconciliation</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/SERVER SETTING.png" alt="SERVER SETTING" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2" [checked]="userRightsData['Server_Settings']" (change)="toggleServer_Settings($event)"
+                        id="Server_Settings">
+                    <label for="Server_Settings" class="form-check-label">Server Settings</label>
+                </div>
+
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/warehouse.png" alt="Warehouse" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2" [checked]="userRightsData['Warehouse']" (change)="toggleWarehouse($event)"
+                        id="Warehouse">
+                    <label for="Warehouse" class="form-check-label">Warehouse</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/THIRD PARY SETTING.png" alt="THIRD PARY SETTING" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <!-- <input type="checkbox" class="custom-control-input" [checked]="userRightsData['Third_Party_Settings']"
+                        id="Third_Party_Settings"> -->
+                        <input type="checkbox" name="Third_Party_Settings" class="custom-control-input me-2" [checked]="userRightsData['Third_Party_Settings']" (change)="toggleThird_Party_Settings($event)" id="Third_Party_Settings">
+                    <label for="Third_Party_Settings" class="form-check-label">Third Party Settings</label>
+                </div>
+
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/Server Access.png" alt="server_access" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2" [checked]="userRightsData['server_access']" (change)="toggleserver_access($event)"
+                        id="server_access"> 
+                    <label for="server_access" class="form-check-label">server_access</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/Batch Access.png" alt="batch_access" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2" [checked]="userRightsData['batch_access']" (change)="togglebatch_access($event)"
+                        id="batch_access">
+                    <label for="batch_access" class="form-check-label">batch Access</label>
+                </div>
+
+                <div class="col-lg-1 mt-3">
+                    <img src="/assets/images/icons/upload Access.png" alt="batch_upload_access" class="img-fluid" style="width: 57px;height: 57px;">
+                </div>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input me-2 " [checked]="userRightsData['batch_upload_access']" (change)="togglebatch_upload_access($event)"
+                        id="batch_upload_access">
+                    <label for="batch_upload_access" class="form-check-label">Batch Upload Access</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-9"></div>
+                <div class="col-sm-3">
+                    <button data-bs-dismiss="modal" (click)="updateUserRights()" class="btn btn-primary"
+                id="successModal">
+                Update
+            </button>
+                </div>
+            </div>
+
+
+        </form>
+
+
+    </div>
+</div>

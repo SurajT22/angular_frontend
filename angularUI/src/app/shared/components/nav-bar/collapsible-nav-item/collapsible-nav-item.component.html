@@ -1,0 +1,19 @@
+<li class="side-nav-item collapse-item">
+  <a
+    data-bs-toggle="collapse"
+    href="#{{ collapseId }}"
+    aria-expanded="false"
+    class="{{ parentClass }}"
+  >
+    <i class="{{ navbarItem.iconClass }}"></i>
+    <span> {{ navbarItem.label }} </span>
+    <span class="menu-arrow"></span>
+  </a>
+  <div class="collapse" id="{{ collapseId }}">
+    <ul class="{{ levelClass }}">
+      @for (item of navbarItem.children; track item) {
+        <app-nav-item [navbarItem]="item"></app-nav-item>
+      }
+    </ul>
+  </div>
+</li>

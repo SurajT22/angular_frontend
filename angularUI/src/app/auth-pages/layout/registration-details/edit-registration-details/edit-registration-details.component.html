@@ -1,0 +1,7 @@
+<app-page-header [headerLabel]="'Edit Client'"></app-page-header>
+<app-client-form
+  [client]="client"
+  (btnClick)="editClient($event)"
+  [isUpdate]="true"
+  [btnLabel]="'Edit'"
+></app-client-form>

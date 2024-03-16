@@ -1,0 +1,7 @@
+<app-page-header [headerLabel]="'Edit Product List'"></app-page-header>
+<app-list-product-form 
+[productList]="productList"
+(btnClick)="editClient($event)"
+[isUpdate]="true"
+[btnLabel]="'Edit'"
+></app-list-product-form>

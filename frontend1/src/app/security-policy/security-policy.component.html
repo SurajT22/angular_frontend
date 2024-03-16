@@ -1,0 +1,94 @@
+<div class="stat-cards-item">
+    <div class="col-md-12 order-md-1  rounded box-shadow users-table">
+        <h4 class="mb-3 text-center">Security Policy</h4>
+        <hr class="mb-4">
+        <form class=" row g-3 stat-cards">
+
+            <div class="row">
+                <label for="formtext" class="col-sm-2 col-form-label ">PasswordLength</label>
+                <div class="col-sm-3">
+                    <input type="text" name="passwordlength" class="form-control form-input search-wrapper" [(ngModel)]="securitypolicy.PasswordLength" id="passwordLength">
+                </div>
+                <div class="col-sm-2"></div>
+                   
+                <label for="formtext" class="col-sm-2 col-form-label">Numbers</label>
+                <div class="col-sm-3 mt-3" >
+                    
+                    <input type="checkbox" class="custom-control-input" name="Numbers"
+                    [checked]="securitypolicy.Numbers==='1'" (change)="toggleAutoNumbers($event)" id="Numbers">
+                </div>
+
+            </div>
+            <div class="row">
+                <label for="formtext" class="col-sm-2 col-form-label">UserDays</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control form-input" name="UserDays"
+                        [(ngModel)]="securitypolicy.UserDays" id="UserDays">
+                </div>
+                <div class="col-sm-2"></div>
+                <label for="formtext" class="col-sm-2 col-form-label">Uppercase Letters</label>
+                <div class="col-sm-3 mt-3">
+                    <input type="checkbox" class="custom-control-input" name="UppercaseLetters"
+                    [checked]="securitypolicy.UppercaseLetters==='1'" (change)="toggleAutoUppercaseLetters($event)" id="UppercaseLetters">
+                </div>
+                
+                
+            </div>
+            <div class="row">
+                <label for="formtext" class="col-sm-2 col-form-label">Duplicate Password</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control form-input" name="DuplicatePassword"
+                        [(ngModel)]="securitypolicy.DuplicatePassword" id="DuplicatePassword">
+                </div>
+                <div class="col-sm-2"></div>
+                <label for="formtext" class="col-sm-2 col-form-label">Symbols</label>
+                <div class="col-sm-3">
+                    <input type="checkbox" class="custom-control-input mt-3" name="Symbols"
+                    [checked]="securitypolicy.Symbols ==='1'" (change)="toggleAutoSymbols($event)" id="Symbols">
+                </div>
+            </div>
+            <div class="row">
+                <label for="formtext" class="col-sm-2 col-form-label">ExpiryDays</label>
+                <div class="col-sm-3">
+                    <input type="text" name="ExpiryDays" class="form-control form-input"
+                        [(ngModel)]="securitypolicy.ExpiryDays" id="ExpiryDays">
+                </div>
+                
+                <div class="col-sm-2"></div>
+                <!-- <label for="formtext" class="col-sm-2 col-form-label">AutoLogout</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control form-input" name="AutoLogout"
+                        [(ngModel)]="securitypolicy.AutoLogout" id="AutoLogout">
+                </div> -->
+               
+                      <label class="col-sm-2 col-form-label" for="autoLogoutCheckbox">AutoLogout</label>
+                      <div class="col-sm-3">
+                      <input class="custom-control-input" name="AutoLogout" id="autoLogoutCheckbox" type="checkbox" [checked]="securitypolicy.AutoLogout === '1'" 
+                       (change)="toggleAutoLogout($event)" id="autoLogoutCheckbox">
+                    </div>
+                  </div>
+                
+       
+            <div class="row">
+
+                <label for="formtext" class="col-sm-2 col-form-label">LockoutAttempts</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control form-input" name="LockoutAttempts"
+                        [(ngModel)]="securitypolicy.LockoutAttempts" id="LockoutAttempts">
+                </div>                
+                <div class="col-sm-2"></div>
+                <label for="formtext" *ngIf="securitypolicy.AutoLogout === '1'" class="col-sm-2 col-form-label">AutoLogoutDuration</label>
+                <div class="col-sm-3" *ngIf="securitypolicy.AutoLogout === '1'">
+                    <input type="text" class="form-control form-input" name="AutoLogoutDuration"
+                        [(ngModel)]="securitypolicy.AutoLogoutDuration" id="AutoLogoutDuration">
+                </div>
+                
+            </div>
+            <button data-bs-dismiss="modal" (click)="updateSecurityPolicyList()" class="btn btn-primary"
+                id="successModal">
+                Update
+            </button>
+        </form>
+
+    </div>
+</div>

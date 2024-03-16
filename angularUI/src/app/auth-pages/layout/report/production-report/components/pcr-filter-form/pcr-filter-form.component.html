@@ -1,0 +1,12 @@
+<div class="col-12 col-md-12 col-lg-12 col-sm-12">
+    <div class="field">
+        <label>
+            Batch
+        </label>
+        <app-ng-select class="col-12" [items]="batchList" [bindValue]="'value'" [bindLabel]="'label'"
+            [required]="true"></app-ng-select>
+    </div>
+</div>
+<div class="col-12 col-md-12 col-lg-12 col-sm-12">
+    <app-text [label]="'Product Name'" [required]="true"></app-text>
+</div>

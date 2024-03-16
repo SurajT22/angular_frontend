@@ -1,0 +1,37 @@
+<div class="col-12 col-md-12 col-lg-12 col-sm-12">
+    <div class="field">
+        <label>
+            PO/Deliver
+        </label>
+        <app-ng-select class="col-12" [items]="poDeliverList" [bindValue]="'value'" [bindLabel]="'label'"
+            [required]="true"></app-ng-select>
+    </div>
+</div>
+<div class="col-12 col-md-12 col-lg-12 col-sm-12">
+    <div class="field">
+        <label>
+            Batch
+        </label>
+        <app-ng-select class="col-12" [items]="batchList" [bindValue]="'value'" [bindLabel]="'label'"
+            [required]="true"></app-ng-select>
+    </div>
+</div>
+
+<div class="col-12 col-md-12 col-lg-12 col-sm-12">
+    <div class="field">
+        <label>
+            GTIN
+        </label>
+        <app-ng-select class="col-12" [items]="GtinList" [bindValue]="'value'" [bindLabel]="'label'"
+            [required]="true"></app-ng-select>
+    </div>
+</div>
+<div class="col-12 col-md-12 col-lg-12 col-sm-12">
+    <div class="field">
+        <label>
+            Status
+        </label>
+        <app-ng-select class="col-12" [items]="statusList" 
+            [bindValue]="'value'" [bindLabel]="'label'" [required]="true"></app-ng-select>
+    </div>
+</div>

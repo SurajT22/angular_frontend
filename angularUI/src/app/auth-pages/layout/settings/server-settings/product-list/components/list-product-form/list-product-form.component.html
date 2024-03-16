@@ -1,0 +1,218 @@
+<div class="form-layout-input">
+    <form #ssccForm="ngForm">
+        <div class="form-outer">
+            <div class="form-fieldset">
+                @if (!isUpdate){
+                <div class="row">
+
+                    <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                        <div class="field">
+                            <label>
+                                CompanyPrefrix
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+
+                            <app-ng-select class="col-12" [items]="companyPrefixList" [required]="true"
+                                [(value)]="productList.CompanyPrefrix" [clearable]="false" [disabled]="isUpdate">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                        <div class="field">
+                            <label>
+                                Batch Type
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+
+                            <app-ng-select class="col-12" [items]="companyPrefixList" [required]="true"
+                                [(value)]="productList.CompanyPrefrix" [clearable]="false" [disabled]="isUpdate">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                        <div class="field">
+                            <label>
+                                Batch Type
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+
+                            <app-ng-select class="col-12" [items]="companyPrefixList" [required]="true"
+                                [(value)]="productList.CompanyPrefrix" [clearable]="false" [disabled]="isUpdate">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-8 col-lg-8 col-sm-8">
+                        <app-text [label]="'Product Height'" [(value)]="productList.productHeight"
+                            [required]="true"></app-text>
+                    </div>
+                </div>
+                } @else {
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                        <div class="field">
+                            <label>
+                                Product List
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+
+                            <app-ng-select class="col-12" [items]="companyPrefixList" [required]="true"
+                                [(value)]="productList.productList" [clearable]="false" [disabled]="!isUpdate">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                        <div class="field">
+                            <label>
+                                GTIN
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+
+                            <app-ng-select class="col-12" [items]="companyPrefixList" [required]="true"
+                                [(value)]="productList.GTIN" [clearable]="false" [disabled]="!isUpdate">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+
+            <div class="form-fieldset">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <h6>Station Details</h6>
+                        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                            <div class="field">
+                                <label>
+                                    Packaging Level
+                                    <span class="text-danger text-bold"> * </span>
+                                </label>
+
+                                <app-ng-select class="col-12" [items]="packageLevelList" [required]="true"
+                                    [(value)]="stationDetail.packageLevel" [clearable]="false" [disabled]="isUpdate">
+                                </app-ng-select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                            <app-text [label]="'Item Code'" [(value)]="stationDetail.itemCode" [required]="true"
+                                [disabled]="isUpdate"></app-text>
+                        </div>
+                        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                            <app-text [label]="'Layers'" [(value)]="stationDetail.Layers" [disabled]="!isUpdate"
+                                [disabled]="isUpdate"></app-text>
+                        </div>
+                        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                            <div class="field">
+                                <label>
+                                    Item in Layers
+                                    <span class="text-danger text-bold"> * </span>
+                                </label>
+
+                                <app-ng-select class="col-12" [items]="itemInLayersList" [required]="true"
+                                    [(value)]="stationDetail.itemInLayers" [clearable]="false">
+                                </app-ng-select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                            <app-text [label]="'Other'" [(value)]="stationDetail.other"
+                                [disabled]="!isUpdate"></app-text>
+                        </div>
+                        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                            <div class="field">
+                                <label>
+                                    Barcode Type
+                                    <span class="text-danger text-bold"> * </span>
+                                </label>
+
+                                <app-ng-select class="col-12" [items]="barcodeTypeList" [required]="true"
+                                    [(value)]="stationDetail.barcodeType" [clearable]="false">
+                                </app-ng-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <h6>HRF Details</h6>
+                        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+
+                            <div class="field">
+                                <label>
+                                    HRF1 Al
+                                    <span class="text-danger text-bold"> * </span>
+                                </label>
+
+                                <app-ng-select class="col-12" [items]="hrfDetailslist"
+                                    [(value)]="productList.hrfDetails" [clearable]="false">
+                                </app-ng-select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                            <div class="field">
+                                <label>
+                                    HRF2 Al
+                                    <span class="text-danger text-bold"> * </span>
+                                </label>
+                                <app-ng-select class="col-12" [items]="hrfDetailslist"
+                                    [(value)]="productList.hrfDetails" [clearable]="false">
+                                </app-ng-select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                            <div class="field">
+                                <label>
+                                    HRF3 Al
+                                    <span class="text-danger text-bold"> * </span>
+                                </label>
+                                <app-ng-select class="col-12" [items]="hrfDetailslist"
+                                    [(value)]="productList.hrfDetails" [clearable]="false">
+                                </app-ng-select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                            <div class="field">
+                                <label>
+                                    HRF4 Al
+                                    <span class="text-danger text-bold"> * </span>
+                                </label>
+                                <app-ng-select class="col-12" [items]="hrfDetailslist"
+                                    [(value)]="productList.hrfDetails" [clearable]="false">
+                                </app-ng-select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                            <div class="field">
+                                <label>
+                                    HRF5 Al
+                                    <span class="text-danger text-bold"> * </span>
+                                </label>
+                                <app-ng-select class="col-12" [items]="hrfDetailslist"
+                                    [(value)]="productList.hrfDetails" [clearable]="false">
+                                </app-ng-select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-fieldset">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                            <app-text [label]="'Product Height'" [(value)]="productList.productHeight"
+                                [required]="true"></app-text>
+                        </div>
+                        @if (!isUpdate){
+                        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                            <app-text [label]="'GTIN'" [(value)]="productList.GTIN" [required]="true"
+                                [disabled]="!isUpdate"></app-text>
+                        </div>
+                    }
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <div>
+                        <app-form-btn-pr [btnLabel]="'Save'" (btnClick)="onSaveBtnClick()"></app-form-btn-pr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

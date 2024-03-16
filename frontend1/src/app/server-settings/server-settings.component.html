@@ -1,0 +1,92 @@
+<div class="stat-cards-item">
+    <div class="col-md-12 order-md-1  users-table">
+        <h4 class="mb-3 text-center">Server Settings</h4>
+        <hr class="mb-4">
+
+        <div class="card users-table">
+            <div class="card-header">
+                
+                <ul class="nav nav-tabs card-header-tabs" data-bs-tabs="tabs" >
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="true" data-bs-toggle="tab" href="#dhcp" [(ngModel)]="selectedUidType">AlphaNumeric
+                            UIDs</a>
+                    </li>
+                    <li class="nav-item" *ngIf="serverSettings.NumericUidFacility" [class.disabled]="!serverSettings.NumericUidFacility">
+                        <a class="nav-link" data-bs-toggle="tab" href="#static" >Numeric UIDs</a>
+                    </li>
+                </ul>
+            </div>
+            <form class="card-body tab-content ms-4 me-4">
+                <div class="tab-pane active" id="dhcp">
+                    
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                        <select class="form-select" aria-label="Default select example" *ngIf="serverSettings" [(ngModel)]="selectedUidDigits">
+                            <option selected>Open this select menu</option>
+                            <option *ngFor="let length of serverSettings.AvailableAlphaNumUidLength">{{ length }}</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="formtext" class="col-sm-4 col-form-label text_white">Total Downloaded Number</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control form-input" name="TotalDownloadedNumber" id="TotalDownloadedNumber">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label for="formtext" class="col-sm-4 col-form-label text_white">Remaining Number</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="RemainingNumber" class="form-control form-input search-wrapper"
+                                id="RemainingNumber">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="formtext" class="col-sm-4 col-form-label text_white">Sample UID(Numeric)</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="sampleUID" class="form-control form-input search-wrapper"
+                                id="sampleUID">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="tab-pane" id="static" *ngIf="serverSettings.NumericUidFacility">
+                    <p class=" card-text">Change Static Network settings.</p>
+                    <div class="row mb-3">
+                        <div class="col-sm-3">
+                          <select class="form-select" aria-label="Default select example" *ngIf="serverSettings">
+                            <option selected>Open this select menu</option>
+                            <option *ngFor="let length of serverSettings.AvailableNumericUidLength">{{ length }}</option>
+                          </select>
+                        </div>
+                      </div>
+                    <div class="row">
+                        <label for="formtext" class="col-sm-4 col-form-label">Total Downloaded Number</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control form-input" name="TotalDownloadedNumber" id="TotalDownloadedNumber">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label for="formtext" class="col-sm-4 col-form-label">Remaining Number</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="RemainingNumber" class="form-control form-input search-wrapper"
+                                id="RemainingNumber">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="formtext" class="col-sm-4 col-form-label">Sample UID(Numeric)</label>
+                        <div class="col-sm-3">
+                            <input type="text" name="sampleUID" class="form-control form-input search-wrapper"
+                                id="sampleUID">
+                        </div>
+                    </div>
+                </div>
+               
+            </form>
+            
+        </div>
+        <button class="btn btn-primary mt-5" (click)="saveSettings()" type="submit">Save</button>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<app-page-header [headerLabel]="headerLable"></app-page-header>
+
+<div class="px-2">
+    <form #userRightsForm="ngForm">
+        <div class="form-fieldset">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                    <div class="field">
+                        <label style="font-weight: 600;">
+                            User
+                            <span class="text-danger text-bold"> * </span>
+                        </label>
+                        <app-ng-select class="col-12" [items]="userList" [bindLabel]="'FullName'" [bindValue]="'UserName'"
+                            [required]="true" [(value)]="selectedUserName" (valueChange)="selectedUserNameChange.emit(selectedUserName)" [clearable]="false"
+                            [placeholder]="'Please Select User'">
+                        </app-ng-select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 permission-mover-container">
+                    <div class="permission-container">
+                        <div class="header bg-primary">Available Rights</div>
+                        <div class="ls-item-container">
+                            @for (
+                            permission of availablePermissions;
+                            track permission
+                            ) {
+                            <div class="ls-item">
+                                <div class="checker">
+                                    <span>
+                                        <app-checkbox [label]="transformPermission(permission.permission)"
+                                            [(value)]="permission.checked">
+                                        </app-checkbox>
+                                    </span>
+                                </div>
+                            </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="justify-content: flex-end">
+                <div class="col-2">
+                    <app-form-btn-pr [btnLabel]="'Save'" (btnClick)="onSaveBtnClick()"></app-form-btn-pr>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,47 @@
+<app-page-header [headerLabel]="'SSCC Details'" [btnLink]="['add']" [btnLabel]="'Add SSCC'"
+  [btnVisible]="true"></app-page-header>
+
+<div class="table-responsive">
+  <table class="table oee-custom-table table-responsive text-center">
+    <thead>
+      <tr>
+        <th class="text-center" width="30">ID</th>
+        <th class="text-center" width="80">START</th>
+        <th class="text-center" width="100">END</th>
+        <th class="text-center" width="100">USED LIMIT</th>
+        <th class="text-center" width="80">EX DIGIT</th>
+        <th class="text-center" width="100">STATUS</th>
+        <th class="text-center" width="150">DATE&TIME</th>
+        <th class="text-center" width="100">STATE</th>
+        <th class="text-center" width="200">REMAINING QUANTITIES</th>
+        <th class="text-center" width="150">COMPANY PREFIX</th>
+        <th class="text-center" width="120">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        @for (sscc of ssccList; track sscc.ID) {
+            <tr>
+                <td width="30">{{ sscc.ID }}</td>
+                <td width="80">{{ sscc.Start }}</td>
+                <td width="100">{{ sscc.End }}</td>
+                <td width="100">{{ sscc.UserLimit }}</td>
+                <td width="80">{{ sscc.ExDigit }}</td>
+                <td width="100" style="color: aliceblue;"><span [innerHTML]="sscc.Status | ssccStatusHtml"></span></td>
+                <td width="150">{{ sscc.DateTime }}</td>
+                <td width="100">{{ sscc.Regulatory }}</td>
+                <td width="200">{{ sscc.RemainingQty }}</td>
+                <td width="150">{{ sscc.CompanyPrefrix }}</td>
+                <td width="120">
+                  <a href="javascript:;" class="me-3" tooltip="Edit SSCC" placement="top"
+                    [routerLink]="['edit',sscc.ID]">
+                    <i class="lni lni-pencil text-primary"></i>
+                  </a>
+                  <a href="javascript:;" class="me-3" tooltip="Delete SSCC" placement="top" (click)="clickDeleteSscc()">
+                    <i class="lni lni-trash-can text-primary"></i>
+                  </a>
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>

@@ -1,0 +1,106 @@
+<app-page-header [headerLabel]="'SYSTEM SETTING'"></app-page-header>
+<div class="row mt-2">
+    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+        <div class="form-layout-input">
+            <form #backuprestoreForm="ngForm">
+                <div class="form-outer">
+                    <div class="form-fieldset">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h6 class="mb-2" style="font-size: 13px;color: #4A4A4A;">Database</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <div class="mdi mdi-progress-download mdi-48px"></div>
+                                        <button class="btn is-primary-btn is-primary mt-2">Data Restore</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <div class="mdi mdi-database-import mdi-48px"></div>
+                                        <button class="btn is-primary-btn is-primary mt-2">Data Backup</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+        <div class="form-layout-input">
+            <form #backuprestoreForm="ngForm">
+                <div class="form-outer">
+                    <div class="form-fieldset">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h6 class="mb-2" style="font-size: 13px;color: #4A4A4A;">Configuration</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <div class="mdi mdi-file-restore mdi-48px"></div>
+                                        <button class="btn is-primary-btn is-primary mt-2">File Restore</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <div class="mdi mdi-file-replace mdi-48px"></div>
+                                        <button class="btn is-primary-btn is-primary mt-2">File Backup</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-6 col-sm-6 mt-4">
+        <div class="form-layout-input">
+            <form #backuprestoreForm="ngForm">
+                <div class="form-outer">
+                    <div class="form-fieldset">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h6 class="mb-2" style="font-size: 13px;color: #4A4A4A;">Atuo Backup</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8 col-md-8 col-lg-8 col-sm-8" style="padding-left: 0px;">
+                                <div class="field">
+                                    <label>
+                                        Duration of Backup
+                                    </label>
+                                    <app-ng-select class="col-12" [items]="durationList" [required]="false"
+                                        [clearable]="false">
+                                    </app-ng-select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-8 col-md-8 col-lg-8 col-sm-8" style="padding-left: 0px;">
+                                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                                    <app-date [label]="'Scheduled Time'">
+                                    </app-date>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn is-primary-btn is-primary mt-3">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,101 @@
+<app-page-header [headerLabel]="'Product List'" [btnLink]="['add']" [btnLabel]="'Add Product'"
+  [btnVisible]="true"></app-page-header>
+
+
+<div class="mx-2">
+    <form #listProductForm="ngForm">
+        <div class="form-fieldset">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                    <div class="field">
+                        <label>
+                            Report Type
+                        </label>
+                        <app-ng-select class="col-12" [items]="productNameList"
+                             [bindLabel]="'label'" [bindValue]="'value'"
+                            [required]="true">
+                        </app-ng-select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                    <div class="field">
+                        <label>
+                            GTIN
+                        </label>
+                        <app-ng-select class="col-12" [items]="gtinList"
+                             [bindLabel]="'label'" [bindValue]="'value'"
+                            [required]="true">
+                        </app-ng-select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                    <div class="field">
+                        <button  href="javascript:;" class=" lni lni-pencil text-primary btn is-primary-btn is-primary mt-3"
+                         placement="top" [routerLink]="['edit',productList]">Update</button>
+                        
+                        <!-- <button href="javascript:;" class="me-3" tooltip="Edit ProductList" placement="top"
+                    [routerLink]="['Update']">
+                    <i class="lni lni-pencil text-primary"></i>
+                  </button> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                
+                <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                    <div class="card grid-card">
+                        <div class="card-body">
+                                <div class="table-responsive pb-2">
+                                    <table class="table oee-custom-table table-responsive text-center">
+                                        
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center" width="100">station Details</th>
+                                                    <th class="text-center" width="100">value</th>
+                                                   
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (productList of productList; track
+                                                productList.ProductName) {
+                                                <tr>
+                                                    <td width="100">{{productList.StationDetail}}</td>
+                                                    <td width="100">{{productList.Value}}</td>
+                                                   
+                                                </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                </div>
+
+                                <div class="table-responsive pt-2 border-top">
+                                    <table class="table oee-custom-table table-responsive text-center">
+                                        
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center" width="100">HRF Name</th>
+                                                    <th class="text-center" width="100">HRF Value/th>
+                                                   
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (productList of productList; track
+                                                productList.HRFName) {
+                                                <tr>
+                                                    <td width="100">{{productList.HRFName}}</td>
+                                                    <td width="100">{{productList.HRFValue}}</td>
+                                                   
+                                                </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>

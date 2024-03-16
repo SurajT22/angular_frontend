@@ -1,0 +1,67 @@
+<app-page-header [headerLabel]="'Batch Info'"></app-page-header>
+<div class="mx-2">
+    <form #batchInfoForm="ngForm">
+        <div class="form-fieldset">
+            <div class="row">
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                    <app-batch-reconcil-form></app-batch-reconcil-form>
+                </div>
+                <div class="col-12 col-md-8 col-lg-8 col-sm-8">
+                    <div class="card grid-card">
+                        <div class="card-body">
+                                <div class="table-responsive pb-2">
+                                    <table class="table oee-custom-table table-responsive text-center">
+                                        
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center" width="100">station Details</th>
+                                                    <th class="text-center" width="100">value</th>
+                                                   
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (batchInfoStationDetails of batchInfoStationDetailsList; track
+                                                batchInfoStationDetails.stationDetails) {
+                                                <tr>
+                                                    <td width="100">{{batchInfoStationDetails.stationDetails}}</td>
+                                                    <td width="100">{{batchInfoStationDetails.value}}</td>
+                                                   
+                                                </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                </div>
+
+                                <div class="table-responsive pt-2 border-top">
+                                    <table class="table oee-custom-table table-responsive text-center">
+                                        
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center" width="100">Status</th>
+                                                    <th class="text-center" width="100">Quantity</th>
+                                                   
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @for (batchInfoStatus of batchInfoStatusList; track
+                                                batchInfoStatus.status) {
+                                                <tr>
+                                                    <td width="100">{{batchInfoStatus.status}}</td>
+                                                    <td width="100">{{batchInfoStatus.quantity}}</td>
+                                                   
+                                                </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>

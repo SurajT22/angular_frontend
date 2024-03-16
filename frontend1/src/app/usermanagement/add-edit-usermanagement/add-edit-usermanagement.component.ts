@@ -3,6 +3,7 @@ import { Component, Input, OnInit, EventEmitter, Output, ViewChild, ElementRef }
 import { SharedService } from 'src/app/shared.service';
 import { SuccessMessageSourceService } from 'src/app/success-message-source.service';
 
+
 @Component({
   selector: 'app-add-edit-usermanagement',
   templateUrl: './add-edit-usermanagement.component.html',
@@ -10,24 +11,13 @@ import { SuccessMessageSourceService } from 'src/app/success-message-source.serv
 })
 export class AddEditUsermanagementComponent implements OnInit {
   userName: any = {};
-
-  // onSubmit() {
-  //   // if (this.userForm.valid) {
-  //   //   // Your form submission logic goes here
-  //   //   console.log('Form submitted!', this.usermanag);
-  //   //   this.addUserProfile();
-  //   // }else{
-  //   //     console.log('Form not submitted!',this.usermanag);
-  //   // }
-  //   this.addUserProfile();
-
-  // }
   successMessage: any;
   errorMessage!: string;
   userForm: any;
 
   constructor(private service: SharedService, private successMessageService: SuccessMessageSourceService) { }
   @Output() closeModal: EventEmitter<void> = new EventEmitter<void>();
+  
   // @ViewChild('successModal') successModal !: ElementRef;
 
 
@@ -51,7 +41,7 @@ export class AddEditUsermanagementComponent implements OnInit {
 
   ngOnInit(): void {
     // this.selectedUserStatus =this.usermanag[7] ? this.usermanag[7].toString() : '1';
-    this.selectedUserStatus = this.usermanag[7]?.toString() || '1';
+    this.selectedUserStatus = this.usermanag.UserStatus?.toString() || '1';
     this.loadGroupList();
 
 
@@ -81,15 +71,15 @@ export class AddEditUsermanagementComponent implements OnInit {
 
   loadGroupList() {
     this.service.getGroupList().subscribe((data: any) => {
-      this.GroupList = data?.Data?.GroupConfig.map((group: any[]) => {
+      this.GroupList = data?.GroupConfig.map((group: any) => {
         return {
-          value: group[7].toString(),   // Convert to string as ngModel expects string values
-          label: this.userTypeMappings[group[7]] || 'Unknown'
+          value: group.group_level.toString(),   // Using group_level as the value
+          label: this.userTypeMappings[group.group_level] || 'Unknown'
         };
       }) || [];
     });
   }
-
+  
 
 
 
@@ -104,18 +94,14 @@ export class AddEditUsermanagementComponent implements OnInit {
   addUserProfile() {
 
     var val = {
-      "UserID": this.usermanag[0],//username
-      "GroupLevel": this.usermanag[1],//user_type
-      "UserName": this.usermanag[2],//full_name
-      "Department": this.usermanag[3],//department
-      "Password": this.usermanag[4],//password
-      // password_expirey_status:this.usermanag[5],
-      // password_change_attempts:this.usermanag[6],
-      // "User Status":this.usermanag[7],//user_status
+      "UserID": this.usermanag.UserID,//username
+      "UserType": this.usermanag.UserType,//user_type
+      "UserName": this.usermanag.UserName,//full_name
+      "Department": this.usermanag.Department,//department
+      "Password": this.usermanag.password,//password
       "UserStatus": this.selectedUserStatus,
-      // password_creation_date:this.usermanag[8],
-      // password_creation_time:this.usermanag[9],
-      // rights:this.usermanag[10],
+      "EmailID":this.usermanag.EmailID,
+   
     }
 
     this.service.addUsersProfile(val).subscribe(res => {
@@ -135,12 +121,15 @@ export class AddEditUsermanagementComponent implements OnInit {
 
   updateUserProfile() {
     var val = {
-      "UserID": this.usermanag[0],//username
-      "GroupLevel": this.usermanag[1],//user_type
-      "UserName": this.usermanag[2],//full_name
-      "Department": this.usermanag[3],//department
-      "Password": this.usermanag[4],//password
+      "UserID": this.usermanag.UserID,//username
+      "UserType": this.usermanag.UserType,//user_type
+      "UserName": this.usermanag.UserName,//full_name
+      "Department": this.usermanag.Department,//department
+      // "Password": this.usermanag[4],//password
       "UserStatus": this.selectedUserStatus,
+      "EmailID":this.usermanag.EmailID,
+      "Remark":"123",
+
     };
     this.service.updateUsersProfile(val).subscribe(res => {
 

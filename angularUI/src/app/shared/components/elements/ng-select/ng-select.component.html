@@ -1,0 +1,27 @@
+<div class="input-control">
+  <ng-select
+    [multiple]="multiple"
+    (change)="onSelectOnChange()"
+    [(ngModel)]="value"
+    [required]="required"
+    [clearable]="clearable"
+    name="{{ uniqueId }}"
+    [disabled]="disabled"
+    #ngselectvalue="ngModel"
+    [items]="items"
+    [bindLabel]="bindLabel"
+    [bindValue]="bindValue"
+    [placeholder]="placeholder"
+    (ngModelChange)="valueChange.emit(value)"
+  >
+  </ng-select>
+  @if (
+    ngselectvalue.invalid && (ngselectvalue.dirty || ngselectvalue.touched)
+  ) {
+    <div class="error-msg-text">
+      @if (ngselectvalue.hasError("required")) {
+        <span>This field is required.</span>
+      }
+    </div>
+  }
+</div>

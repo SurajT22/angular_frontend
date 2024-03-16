@@ -1,0 +1,106 @@
+<app-page-header [headerLabel]="'Security Policy'"></app-page-header>
+
+
+<div class="form-layout-input">
+    <form #securityPolicyForm="ngForm">
+        <div class="form-fieldset">
+
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 pe-4">
+                    <app-number [label]="'Password Length'" [value]="securitypolicy.PasswordLength"
+                    (valueChange)="securitypolicy.PasswordLength=$event.toString()"
+                        [info]="'Minimum Password Length is 2 & Maximum Password Length is 20'" [min]="2"
+                        [max]="20" [required]="true"></app-number>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 ps-4 border-start border-color-gray">
+                    <div class="field" style="margin: 20px 0px; padding-top: 10px;">
+                        <app-checkbox [label]="'Includes Numbers in Password'"
+                            [(value)]="securitypolicy.Numbers"></app-checkbox>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 pe-4">
+                    <app-number [label]="'Password Expiry Days'" [value]="securitypolicy.ExpiryDays"
+                    (valueChange)="securitypolicy.ExpiryDays=$event.toString()"
+                    [info]="'Minimum Expiry Days is 30 & Maximum Expiry Days is 365'" [min]="30" [max]="365"
+                    [required]="true"></app-number>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 ps-4 border-start border-color-gray">
+                    <div class="field" style="margin: 20px 0px; padding-top: 10px;">
+                        <app-checkbox [label]="'Includes Uppercase Letters in Password'"
+                        [(value)]="securitypolicy.UppercaseLetters"></app-checkbox>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 pe-4">
+                    <app-number [label]="'Prompt User Days'" [value]="securitypolicy.UserDays"
+                    (valueChange)="securitypolicy.UserDays=$event.toString()"
+                    [info]="'Minimum Prompt User Days is 1 & Maximum Prompt User Days is 15'" [min]="1"
+                    [max]="15" [required]="true"></app-number>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 ps-4 border-start border-color-gray">
+                    <div class="field" style="margin: 20px 0px; padding-top: 10px;">
+                        <app-checkbox [label]="'Includes Symbols in Password'"
+                        [(value)]="securitypolicy.Symbols"></app-checkbox>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 pe-4">
+                    <app-number [label]="'Lockout Attempts'" [value]="securitypolicy.LockoutAttempts"
+                    (valueChange)="securitypolicy.LockoutAttempts=$event.toString()"
+                    [info]="'Minimum Lockout Attempts is 10 & Maximum Lockout Attempts is 10'" [min]="3"
+                    [max]="10" [required]="true"></app-number>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 ps-4 border-start border-color-gray">
+                    <div class="field" style="margin: 20px 0px; padding-top: 10px;">
+                        <app-checkbox [label]="'Auto Logout'"
+                        [(value)]="securitypolicy.AutoLogout"></app-checkbox>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 pe-4">
+                    <app-number [label]="'Duplicate Password Allow After'"
+                    [info]="'Minimum Password Change is 1 & Maximum Password Change is 5'" [min]="1"
+                    [max]="5" [value]="securitypolicy.DuplicatePassword"
+                    (valueChange)="securitypolicy.DuplicatePassword=$event.toString()"
+                    [required]="true"></app-number>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 ps-4 border-start border-color-gray">
+                    <div class="field" style="margin: 20px 0px; padding-top: 10px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 pe-4">
+                    <app-number [label]="'Auto Logout Duration (Seconds)'"
+                    [info]="'Minimum Logout Duration is 5 & Maximum Logout Duration is 1800'" [min]="5"
+                    [max]="1800" [value]="securitypolicy.AutoLogoutDuration"
+                    (valueChange)="securitypolicy.AutoLogoutDuration=$event.toString()"
+                    [required]="true"></app-number>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 ps-4 border-start border-color-gray">
+                    <div class="field" style="margin: 20px 0px; padding-top: 10px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-header pb-0 mt-1 mb-0 border-bottom-0 border-top border-color-gray">
+                <div class="form-header-inner" style="justify-content: flex-end">
+                    <div class="right">
+                        <app-form-btn-pr [btnLabel]="'Save'" (btnClick)="onUpdateBtnClick()" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>

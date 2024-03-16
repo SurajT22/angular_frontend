@@ -1,0 +1,59 @@
+<div class="mx-2">
+    <form #prefixForm="ngForm">
+            <div class="form-fieldset">
+                <div class="row">
+                    <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                        <div class="field">
+                            <label>
+                                Station
+                            </label>
+                            <app-ng-select 
+                                class="col-12" 
+                                [items]="stationSelectionList" 
+                                [(value)]="auditreport.Station"
+                                [bindLabel]="'label'" 
+                                [bindValue]="'value'"
+                                [required]="true">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                        <div class="field">
+                            <label>
+                                Report Selection
+                            </label>
+                            <app-ng-select class="col-12" [items]="reportSeletcionList" [bindLabel]="'label'"
+                                [bindValue]="'value'" [(value)]="auditreport.ReportSelection"></app-ng-select>
+                        </div>
+                    </div>
+                    @if (auditreport.ReportSelection == reportSelectionEnum.Date ) {
+                    <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                        <app-date-range
+                        [label]="'Date Range'"
+                        [(dateRange)]="dateRange"                        
+                        >
+                        </app-date-range>
+                    </div>
+                    }
+                    @if(auditreport.ReportSelection == reportSelectionEnum.UserName){
+                    <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                        <div class="field">
+                            <label>
+                                UserName
+
+                            </label>
+                            <app-ng-select class="col-12" [items]="usernameSelectionList" [bindLabel]="'UserName'"
+                                [bindValue]="'UserID'" [(value)]="auditreport.UserName"
+                                [required]="true"></app-ng-select>
+                        </div>
+                    </div>
+                    }
+                </div>
+                <div class="row" style="justify-content: center">
+                    <div class="col-2">
+                        <app-form-btn-pr [btnLabel]="'View'" (btnClick)="onBtnClick()"></app-form-btn-pr>
+                    </div>
+                </div>
+            </div>
+    </form>
+</div>

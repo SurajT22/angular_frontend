@@ -1,0 +1,36 @@
+<div class="section-title mb-0">
+  <h4>{{ machineTag.displayName }}</h4>
+</div>
+<div class="border-top mb-2"></div>
+<div class="row">
+  <div class="col-12 col-md-6 col-lg-6 col-sm-5">
+    <label>
+      Tag Name
+      @if (machineTag.requiredAutoMapping) {
+        <span class="text-danger text-bold"> * </span>
+      }
+    </label>
+    <app-ng-select
+      class="col-12"
+      [items]="tags"
+      [required]="machineTag.requiredAutoMapping"
+      [(value)]="machineTag.tagName"
+      [clearable]="!machineTag.requiredAutoMapping"
+    >
+    </app-ng-select>
+  </div>
+  <div class="col-12 col-md-3 col-lg-3 col-sm-3">
+    <app-number [label]="'Matched Value'" [(value)]="machineTag.tagMachedValue">
+    </app-number>
+  </div>
+  @if (!machineTag.requiredAutoMapping) {
+    <div
+      class="col-12 col-md-3 col-lg-3 col-sm-4 d-flex align-items-center mb-2"
+    >
+      <app-checkbox
+        [label]="'Manual Entry'"
+        [(value)]="machineTag.allowManualEntry"
+      ></app-checkbox>
+    </div>
+  }
+</div>

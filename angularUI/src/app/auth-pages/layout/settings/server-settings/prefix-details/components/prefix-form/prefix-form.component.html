@@ -1,0 +1,29 @@
+<div class="form-layout-input">
+    <form #prefixForm="ngForm">
+        <div class="form-outer">
+            <div class="form-fieldset">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text
+                            [label]="'Prefix'"
+                            [(value)]="prefix.Prefix"
+                            [required]="true"
+                        ></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text
+                            [label]="'Customer Name'"
+                            [(value)]="prefix.CustomerName"
+                            [required]="true"
+                        ></app-text>
+                    </div>
+                    <app-form-footer
+                        [btnLabel]="btnLabel"
+                        (btnClick)="onBtnClick()"
+                    ></app-form-footer>
+                </div>
+            </div>
+        </div>
+    </form>
+  </div>
+                    

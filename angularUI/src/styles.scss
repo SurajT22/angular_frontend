@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+
+// #region Bootstrap 5
+@import './assets/scss/bt-override.scss';
+@import 'bootstrap/scss/bootstrap';
+// #endregion
+
+// #region Angular external module
+@import 'ngx-toastr/toastr';
+@import 'ngx-spinner/animations/square-jelly-box';
+// #endregion
+
+// #region Custom scss
+@import './assets/scss/font.scss';
+@import './assets/scss/custom.scss';
+@import './assets/scss/nav-bar.scss';
+//@import "./assets/scss/icons.scss"; 
+// #endregion
+
+// #region Icon
+@import './assets/icons/line/style.css';
+@import './assets/icons/material-design/style.css';
+@import './assets/icons/unicons/style.css';
+// #endregion

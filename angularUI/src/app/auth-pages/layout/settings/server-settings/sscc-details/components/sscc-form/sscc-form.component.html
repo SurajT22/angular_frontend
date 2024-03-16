@@ -1,0 +1,59 @@
+<div class="form-layout-input">
+    <form #ssccForm="ngForm">
+        <div class="form-outer">
+            <div class="form-fieldset">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                CompanyPrefrix
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+
+                            <app-ng-select class="col-12" [items]="companyPrefixList" [required]="true"
+                                [(value)]="sscc.CompanyPrefrix" [clearable]="false" [disabled]="isUpdate">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Start Range'" [(value)]="sscc.Start" [required]="true"
+                            [disabled]="isUpdate"></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Quantity'" [(value)]="sscc.Quantity" [required]="!isUpdate"
+                            [disabled]="isUpdate"></app-text>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'ExDigit'" [(value)]="sscc.ExDigit" [required]="true"
+                            [disabled]="isUpdate"></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Status
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+                            <app-ng-select class="col-12" [items]="[ssccStatusEnum.Open,ssccStatusEnum.Close]"
+                                [required]="true" [(value)]="sscc.Status" [clearable]="false">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Regulatory
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+                            <app-ng-select class="col-12" [items]="RegulatoryList" [required]="true"
+                                [(value)]="sscc.Regulatory" [clearable]="false" [disabled]="!isUpdate"
+                                [disabled]="isUpdate">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <app-form-footer [btnLabel]="btnLabel" (btnClick)="onBtnClick()"></app-form-footer>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

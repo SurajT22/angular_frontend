@@ -1,0 +1,37 @@
+<app-page-header
+  [headerLabel]="'Prefix Details'"
+  [btnLink]="['add']"
+  [btnLabel]="'Add Prefix'"
+  [btnVisible]="true"
+></app-page-header>
+
+
+
+<div class="table-responsive">
+    <table class="table oee-custom-table table-responsive text-center">
+      <thead>
+        <tr>
+          <th class="text-center" width="120">Prefix</th>
+          <th class="text-center" width="180">CustomerName</th>
+          <th class="text-center" width="120">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+      @for (prefix of prefixList; track prefix.Prefix) {
+        <tr>
+          <td width="120">{{ prefix.Prefix}}</td>
+          <td width="180">{{ prefix.CustomerName }}</td>
+          <td width="120">
+            <a href="javascript:;" class="me-2" tooltip="Edit Client" placement="top"
+              [routerLink]="['edit',prefix.Prefix]">
+              <i class="lni lni-pencil text-primary"></i>
+            </a>
+            <a href="javascript:;" class="me-2" tooltip="Delete Client" placement="top" (click)="clickDeletePrefix()">
+              <i class="lni lni-trash-can text-primary"></i>
+            </a>
+          </td>
+        </tr>
+    }
+  </tbody>
+</table>
+</div>

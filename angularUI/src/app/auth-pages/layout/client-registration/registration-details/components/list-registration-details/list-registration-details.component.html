@@ -1,0 +1,39 @@
+<app-page-header [headerLabel]="'Registration Details'" [btnLink]="['add']" [btnLabel]="'Add Client'"
+  [btnVisible]="true"></app-page-header>
+
+<div class="table-responsive">
+  <table class="table oee-custom-table table-responsive text-center">
+    <thead>
+      <tr>
+        <th class="text-center" width="120">IP Address</th>
+        <th class="text-center" width="180">Mac Address</th>
+        <th class="text-center" width="150">Line Number</th>
+        <th class="text-center" width="150">Plant Name</th>
+        <th class="text-center" width="150">Location</th>
+        <th class="text-center" width="150">Status</th>
+        <th class="text-center" width="120">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (client of clientList; track client.ip) {
+      <tr>
+        <td width="120">{{ client.ip }}</td>
+        <td width="180">{{ client.mac_id }}</td>
+        <td width="150">{{ client.line_number }}</td>
+        <td width="150">{{ client.plant_name }}</td>
+        <td width="150">{{ client.location }}</td>
+        <td width="150"><span [innerHTML]="client.status | registrationStatusHtml"></span></td>
+        <td width="120">
+          <a href="javascript:;" class="me-2" tooltip="Edit Client" placement="top"
+            [routerLink]="['edit',client.ip,client.mac_id]">
+            <i class="lni lni-pencil text-primary"></i>
+          </a>
+          <a href="javascript:;" class="me-2" tooltip="Delete Client" placement="top" (click)="clickDeleteClient()">
+            <i class="lni lni-trash-can text-primary"></i>
+          </a>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

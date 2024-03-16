@@ -1,0 +1,103 @@
+<div class="form-layout-input">
+    <form #clientForm="ngForm">
+        <div class="form-outer">
+            <div class="form-fieldset">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text
+                            [label]="'IP Address'"
+                            [(value)]="client.ip"
+                            [required]="true"
+                        ></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text
+                            [label]="'MAC Address'"
+                            [(value)]="client.mac_id"
+                            [required]="true"
+                        ></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text
+                            [label]="'Line Number'"
+                            [(value)]="client.line_number"
+                            [required]="true"
+                        ></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text
+                            [label]="'Plant Name'"
+                            [(value)]="client.plant_name"
+                            [required]="true"
+                        ></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text
+                            [label]="'Location'"
+                            [(value)]="client.location"
+                            [required]="true"
+                        ></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Status
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+                            <app-ng-select
+                                class="col-12"
+                                [items]="[registrationStatusEnum.Registered,registrationStatusEnum.NotRegistered]"
+                                [required]="true"
+                                [(value)]="client.status"
+                                [clearable]="true"
+                            >
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Packaging Level
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+                            <app-ng-select
+                                class="col-12"
+                                [items]="packagingLevelList"
+                                [required]="true"
+                                [(value)]="client.packaging_Level"
+                                [clearable]="true"
+                            >
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text
+                            [label]="'Regulatory'"
+                            [(value)]="client.regulatory"
+                            [required]="true"
+                        ></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text
+                            [label]="'System Name'"
+                            [(value)]="client.system_name"
+                            [required]="true"
+                        ></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text
+                            [label]="'System Model'"
+                            [(value)]="client.System_Model"
+                            [required]="true"
+                        ></app-text>
+                    </div>
+                    <app-form-footer
+                        [btnLabel]="btnLabel"
+                        (btnClick)="onBtnClick()"
+                    ></app-form-footer>
+                </div>
+            </div>
+        </div>
+    </form>
+  </div>
+  

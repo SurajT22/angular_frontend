@@ -1,0 +1,69 @@
+<app-page-header [headerLabel]="'Production Report Settings'"></app-page-header>
+
+<div class="mx-2">
+    <form #productionReportSettingsForm="ngForm">
+        <div class="form-fieldset">
+            <div class="row">
+
+                <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                    <div class="field">
+                        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                            <app-text [label]="'Product Name'" [required]="true"></app-text>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Address</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                    <div class="row">
+
+                        <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                            <app-text [label]="'Station 1'" [required]="true"></app-text>
+                        </div>
+                        <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                            <app-text [label]="'Station 2'" [required]="true"></app-text>
+                        </div>
+                        <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                            <app-text [label]="'Station 3'" [required]="true"></app-text>
+                        </div>
+                        <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                            <app-text [label]="'Station 4'" [required]="true"></app-text>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                    <div class="field">
+                        <div class="row">
+                            <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                                <app-checkbox [label]="'HRF 1'"></app-checkbox>
+                            </div>
+                            <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                                <app-checkbox [label]="'HRF 2'"></app-checkbox>
+                            </div>
+                            <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                                <app-checkbox [label]="'HRF 3'"></app-checkbox>
+                            </div>
+                            <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                                <app-checkbox [label]="'HRF 4'"></app-checkbox>
+                            </div>
+                            <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                                <app-checkbox [label]="'HRF 5'"></app-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="justify-content: end">
+                    <div class="col-2">
+                        <app-form-btn-pr [btnLabel]="'Save'" (btnClick)="onBtnClick()"></app-form-btn-pr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

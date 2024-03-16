@@ -1,0 +1,259 @@
+<div class="stat-cards-item">
+    <div class="col-md-12 order-md-1  rounded box-shadow users-table">
+        <h4 class="mb-3 text-center">Registration Details</h4>
+        <hr class="mb-4">
+        <form #registrationForm="ngForm" class=" row stat-cards g-3 needs-validation" novalidate>
+            <div class="row g-2 ">
+                <div class="col-md-4 ">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-input form-control" id="register.ip" [(ngModel)]="register.ip"
+                            name="ip" placeholder="Enter IP" required #ip="ngModel"
+                            [ngClass]="{'is-invalid': ip.invalid && (ip.dirty || ip.touched), 'is-valid': ip.valid}">
+                        <label for="register.ip" for="floatingInputGrid">ip</label>
+                        <div *ngIf="ip.invalid && (ip.dirty || ip.touched)" class="invalid-feedback">
+                            <div *ngIf="ip.errors?.['required']">
+                                ip is required.
+                            </div>
+                        </div>
+                        <div *ngIf="ip.valid" class="valid-feedback">
+                            Looks good!
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating mb-3">
+                        <input type="text" name="mac_id" class="form-input form-control" id="register.mac_id"
+                            [(ngModel)]="register.mac_id" placeholder="Enter mac_id" required #mac_id="ngModel"
+                            [ngClass]="{'is-invalid': mac_id.invalid && (mac_id.dirty || mac_id.touched), 'is-valid': mac_id.valid}">
+                        <label for="register.mac_id" for="floatingInputGrid">mac_id</label>
+                        <div *ngIf="mac_id.invalid && (mac_id.dirty || mac_id.touched)" class="invalid-feedback">
+                            <div *ngIf="mac_id.errors?.['required']">
+                                Mac Id is required.
+                            </div>
+                        </div>
+                        <div *ngIf="mac_id.valid" class="valid-feedback">
+                            Looks good!
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating mb-3">
+                        <input type="text" name="line_number" class="form-input form-control" id="register.line_number"
+                            [(ngModel)]="register.line_number" placeholder="Enter line_number" required
+                            #line_number="ngModel"
+                            [ngClass]="{'is-invalid': line_number.invalid && (line_number.dirty || line_number.touched), 'is-valid': line_number.valid}">
+                        <label for="register.line_number" for="floatingInputGrid">line number</label>
+                        <div *ngIf="line_number.invalid && (line_number.dirty || line_number.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="line_number.errors?.['required']">
+                                line number is required.
+                            </div>
+                        </div>
+                        <div *ngIf="line_number.valid" class="valid-feedback">
+                            Looks good!
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row g-2 ">
+                <div class="col-md-4 ">
+                    <div class="form-floating mb-3">
+                        <input type="text" name="plant_name" class="form-input form-control" id="register.plant_name"
+                            [(ngModel)]="register.plant_name" placeholder="Enter plant_name" required
+                            #plant_name="ngModel"
+                            [ngClass]="{'is-invalid': plant_name.invalid && (plant_name.dirty || plant_name.touched), 'is-valid': plant_name.valid}">
+                        <label for="register.plant_name" for="floatingInputGrid">plant_name</label>
+                        <div *ngIf="plant_name.invalid && (plant_name.dirty || plant_name.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="plant_name.errors?.['required']">
+                                Plant Name is required.
+                            </div>
+                        </div>
+                        <div *ngIf="plant_name.valid" class="valid-feedback">
+                            Looks good!
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating mb-3">
+                        <input type="text" name="location" class="form-input form-control" id="register.location"
+                            [(ngModel)]="register.location" placeholder="Enter location" required #location="ngModel"
+                            [ngClass]="{'is-invalid': location.invalid && (location.dirty || location.touched), 'is-valid': location.valid}">
+                        <label for="register.location" for="floatingInputGrid">location</label>
+                        <div *ngIf="location.invalid && (location.dirty || location.touched)" class="invalid-feedback">
+                            <div *ngIf="location.errors?.['required']">
+                                location is required.
+                            </div>
+                        </div>
+                        <div *ngIf="location.valid" class="valid-feedback">
+                            Looks good!
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating mb-3">
+                        <input type="text" name="status" class="form-input form-control" id="register.status"
+                            [(ngModel)]="register.status" placeholder="Enter status" required #status="ngModel"
+                            [ngClass]="{'is-invalid': status.invalid && (status.dirty || status.touched), 'is-valid': status.valid}">
+                        <label for="register.status" for="floatingInputGrid">status</label>
+                        <div *ngIf="status.invalid && (status.dirty || status.touched)" class="invalid-feedback">
+                            <div *ngIf="status.errors?.['required']">
+                                status is required.
+                            </div>
+                        </div>
+                        <div *ngIf="status.valid" class="valid-feedback">
+                            Looks good!
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-2 ">
+                <div class="col-md-4 ">
+                    <div class="form-floating mb-3">
+                        <input type="text" name="date_time" class="form-input form-control" id="register.date_time"
+                            [(ngModel)]="register.date_time" placeholder="Enter date_time" required #date_time="ngModel"
+                            [ngClass]="{'is-invalid': date_time.invalid && (date_time.dirty || date_time.touched), 'is-valid': date_time.valid}">
+                        <label for="register.date_time" for="floatingInputGrid">date_time</label>
+                        <div *ngIf="date_time.invalid && (date_time.dirty || date_time.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="date_time.errors?.['required']">
+                                Date Time is required.
+                            </div>
+                        </div>
+                        <div *ngIf="date_time.valid" class="valid-feedback">
+                            Looks good!
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating mb-3">
+                        <input type="text" name="packaging_level" class="form-input form-control"
+                            id="register.packaging_level" [(ngModel)]="register.packaging_level"
+                            placeholder="Enter packaging_level" required #packaging_level="ngModel"
+                            [ngClass]="{'is-invalid': packaging_level.invalid && (packaging_level.dirty || packaging_level.touched), 'is-valid': packaging_level.valid}">
+                        <label for="register.packaging_level" for="floatingInputGrid">packaging_level</label>
+                        <div *ngIf="packaging_level.invalid && (packaging_level.dirty || packaging_level.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="packaging_level.errors?.['required']">
+                                packaging_level is required.
+                            </div>
+                        </div>
+                        <div *ngIf="packaging_level.valid" class="valid-feedback">
+                            Looks good!
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating mb-3">
+                        <input type="text" name="regulatory" class="form-input form-control" id="register.regulatory"
+                            [(ngModel)]="register.regulatory" placeholder="Enter regulatory" required
+                            #regulatory="ngModel"
+                            [ngClass]="{'is-invalid': regulatory.invalid && (regulatory.dirty || regulatory.touched), 'is-valid': regulatory.valid}">
+                        <label for="register.regulatory" for="floatingInputGrid">regulatory</label>
+                        <div *ngIf="regulatory.invalid && (regulatory.dirty || regulatory.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="regulatory.errors?.['required']">
+                                regulatory is required.
+                            </div>
+                        </div>
+                        <div *ngIf="regulatory.valid" class="valid-feedback">
+                            Looks good!
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-2 ">
+                <div class="col-md-4 ">
+                    <div class="form-floating mb-3">
+                        <input type="text" name="system_name" class="form-input form-control" id="register.system_name"
+                            [(ngModel)]="register.system_name" placeholder="Enter system_name" required
+                            #system_name="ngModel"
+                            [ngClass]="{'is-invalid': system_name.invalid && (system_name.dirty || system_name.touched), 'is-valid': system_name.valid}">
+                        <label for="register.system_name" for="floatingInputGrid">system_name</label>
+                        <div *ngIf="system_name.invalid && (system_name.dirty || system_name.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="system_name.errors?.['required']">
+                                System Name is required.
+                            </div>
+                        </div>
+                        <div *ngIf="system_name.valid" class="valid-feedback">
+                            Looks good!
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4" *ngIf="editMode">
+                    <div class="form-floating mb-3">
+                        <input type="text" name="Account_Type" class="form-input form-control"
+                            id="register.Account_Type" [(ngModel)]="register.Account_Type"
+                            placeholder="Enter Account_Type" required #Account_Type="ngModel"
+                            [ngClass]="{'is-invalid': Account_Type.invalid && (Account_Type.dirty || Account_Type.touched), 'is-valid': Account_Type.valid}">
+                        <label for="register.Account_Type" for="floatingInputGrid">Account_Type</label>
+                        <div *ngIf="Account_Type.invalid && (Account_Type.dirty || Account_Type.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="Account_Type.errors?.['required']">
+                                Account_Type is required.
+                            </div>
+                        </div>
+                        <div *ngIf="Account_Type.valid" class="valid-feedback">
+                            Looks good!
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="col-md-4" *ngIf="!editMode">
+                    <div class="form-floating mb-3">
+                        <input type="text" name="System_Model" class="form-input form-control"
+                            id="register.System_Model" [(ngModel)]="register.System_Model"
+                            placeholder="Enter System_Model" required #System_Model="ngModel"
+                            [ngClass]="{'is-invalid': System_Model.invalid && (System_Model.dirty || System_Model.touched), 'is-valid': System_Model.valid}">
+                        <label for="register.System_Model" for="floatingInputGrid">System_Model</label>
+                        <div *ngIf="System_Model.invalid && (System_Model.dirty || System_Model.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="System_Model.errors?.['required']">
+                                System_Model is required.
+                            </div>
+                        </div>
+                        <div *ngIf="System_Model.valid" class="valid-feedback">
+                            Looks good!
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div *ngIf="registrationForm.submitted && registrationForm.invalid" class="alert alert-danger" role="alert">
+                Please fill in all required fields.
+            </div>
+            <button data-bs-dismiss="modal" (click)="addRegisterationDetails()" *ngIf="!editMode"
+                class="btn btn-primary" id="successModal" [disabled]="!registrationForm.valid">
+
+                Add
+            </button>
+
+            <button data-bs-dismiss="modal" (click)="updateRegistrationDetails()" *ngIf="editMode"
+                class="btn btn-primary" id="successModal">
+                Update
+            </button>
+        </form>
+    </div>
+</div>

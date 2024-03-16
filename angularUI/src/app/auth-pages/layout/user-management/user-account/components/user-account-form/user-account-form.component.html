@@ -1,0 +1,121 @@
+<div class="form-layout-input">
+    <form #userForm="ngForm">
+        <div class="form-outer">
+            <div class="form-fieldset">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text
+                            [label]="'User Full Name'"
+                            [(value)]="user.FullName"
+                            [required]="true"
+                        ></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text
+                            [label]="'User Name'"
+                            [(value)]="user.UserName"
+                            [required]="true"
+                            [disabled]="isUpdate"
+                        ></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                User Access
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+                            <app-ng-select
+                                class="col-12"
+                                [items]="userTypeList"
+                                [bindLabel]="'lable'"
+                                [bindValue]="'value'"
+                                [required]="true"
+                                [(value)]="user.UserType"
+                                [clearable]="false"
+                            >
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text
+                            [label]="'Department'"
+                            [(value)]="user.Department"
+                            [required]="true"
+                        ></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-password
+                            [label]="'Password'"
+                            [(value)]="user.Password"
+                            [required]="!isUpdate"
+                            [disabled]="isUpdate"
+                        ></app-password>
+                        @if(isUpdate){
+                        <div class="pass-help">
+                            <a href="javascript:;" class="me-2 text-primary" tooltip="Change Password" placement="top" (click)="onChangePassword()">
+                                Change Password
+                            </a>
+                        </div>
+                        <div class="pass-help">
+                            <a href="javascript:;" class="me-2 text-primary" tooltip="Forget Password ?" placement="top" (click)="onForgetPassword()">
+                                Forget Password ?
+                            </a>
+                        </div>
+                        }
+                    </div>
+                    @if(!isUpdate){
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-password
+                            [label]="'Confirm Password'"
+                            [(value)]="confirmPassword"
+                            [required]="true"
+                        ></app-password>
+                    </div>
+                    }
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Status
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+                            <app-ng-select
+                                class="col-12"
+                                [items]="userStatusList"
+                                [bindLabel]="'lable'"
+                                [bindValue]="'value'"
+                                [required]="true"
+                                [(value)]="user.UserStatus"
+                                [clearable]="false"
+                            >
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-email
+                            [label]="'Email Id'"
+                            [(value)]="user.EmailID"
+                            [required]="true"
+                        >
+                        </app-email>
+                    </div>
+
+                    @if (isUpdate) {
+                        <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                            <app-text
+                                [label]="'Remark'"
+                                [(value)]="user.Remark"
+                                [required]="true"
+                            ></app-text>
+                        </div>
+                    }
+                    
+                    <app-form-footer
+                        [btnLabel]="btnLabel"
+                        (btnClick)="onBtnClick()"
+                    ></app-form-footer>
+                </div>
+            </div>
+        </div>
+    </form>
+  </div>
+  

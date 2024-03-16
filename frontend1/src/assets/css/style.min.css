@@ -2934,6 +2934,10 @@ label {
 .darkmode .stat-cards-info__num {
     color: #eff0f6
 }
+.darkmode .text_white{
+    color: #eff0f6;
+    background-color: #222235;
+}
 
 .darkmode .chart {
     -webkit-box-shadow: none;
@@ -3697,11 +3701,14 @@ label {
         position: fixed;
         z-index: 2;
         overflow-y: auto;
-        left: -1000px
+        left: 0 
+        
+        /* left:-1000px; */
     }
 
     .sidebar.hidden {
-        left: 0
+        left: -1000px;
+        /* left:0 */
     }
 
     .main-nav {
@@ -3849,3 +3856,8 @@ label {
 }
 
 /*# sourceMappingURL=style.min.css.map */
+/* added css */
+.sidebar-body-menu li a.active {
+    opacity: 1;
+    /* Add any other styles you want for the active class */
+  }

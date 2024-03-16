@@ -1,0 +1,23 @@
+<div class="field">
+  <label
+    >{{ label }}
+    @if (required) {
+      <span class="text-danger text-bold"> * </span>
+    }
+  </label>
+  <div class="custome-radio">
+    @for (option of options; track option) {
+      <input
+        type="radio"
+        [(ngModel)]="value"
+        [value]="option"
+        id="radio{{ uniqueId }} {{ option }}"
+        #radio="ngModel"
+        name="radio{{ uniqueId }} {{ option }}"
+        [required]="required"
+        (ngModelChange)="valueChange.emit(value)"
+      />
+      <label for="radio{{ uniqueId }} {{ option }}">{{ option }}</label>
+    }
+  </div>
+</div>
