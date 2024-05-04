@@ -1,0 +1,83 @@
+<app-page-header [headerLabel]="'Reconcilation'"></app-page-header>
+<div class="mx-2">
+    <form #batchInfoForm="ngForm">
+        <div class="form-fieldset">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                </div>
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4 mt-3">
+                    <div class="center">
+                        <div class="two-button">
+                            <app-form-btn-pr [btnLabel]="'View'" (btnClick)="onViewBtnClick()"></app-form-btn-pr>
+                            <app-btn-pr [btnLabel]="'Export'" [class]="'footer-btn'" [disabled]="!(reportDataRes)"
+                                (btnClick)="onExportBtnClick()">
+                            </app-btn-pr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 20px;">
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                    <div class="card filter-card">
+                        <div class="card-body">
+                            <app-batch-filter-form [lineList]="pageData.LineNumber" [filterFormData]="productionreport">
+                            </app-batch-filter-form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-8 col-lg-8 col-sm-8">
+                    <div class="card grid-card">
+                        <div class="card-body">
+                            <div class="table-responsive list-view">
+                                <table class="table oee-custom-table table-responsive text-center">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" width="100">Serial Number</th>
+                                            <th class="text-center" width="100">Current Status</th>
+                                            <th class="text-center" width="100">Previous Status</th>
+                                            <th class="text-center" width="100">Date Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @for (reconcilation of reconcilationList| paginate
+                                        : {
+                                        itemsPerPage: pageSize,
+                                        currentPage: currentPage,
+                                        totalItems: totalCount
+                                        }; track reconcilation) {
+                                        <tr>
+                                            <td width="100">{{reconcilation.SerialNumber}}</td>
+                                            <td width="100">{{reconcilation.CurrentStatus}}</td>
+                                            <td width="100">{{reconcilation.PreviousStatus}}</td>
+                                            <td width="100">{{reconcilation.DateTime}}</td>
+
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="page-header border-0">
+                                <div class="page-header-inner footer justify-content-start">
+                                    <div class="left">
+                                        <span>
+                                            {{
+                                            currentPage
+                                            | paginationCount
+                                            : pageSize
+                                            : totalCount
+                                            }}
+                                        </span>
+                                    </div>
+                                    <div class="right ms-auto">
+                                        <app-pagination (pageChange)="pageChange($event)"> </app-pagination>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

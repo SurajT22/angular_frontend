@@ -1,0 +1,80 @@
+<div class="card">
+    <h6 class="mt-3 ms-2">Station Details</h6>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                <div class="field">
+                    <label>
+                        Packaging Level
+                        @if(!isUpdate){
+                            <span class="text-danger text-bold"> * </span>
+                        }
+                    </label>
+
+                    <app-ng-select class="col-12" [items]="packageLevelList" [required]="!isUpdate"
+                        (valueBlur)="calculateGtin.emit()" [disabled]="isUpdate"
+                        [(value)]="stationDetail.PackagingLevel" [clearable]="false">
+                    </app-ng-select>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                <app-text [label]="'Item Code'" [value]="itemCode" [required]="!isUpdate" [disabled]="isUpdate"
+                    (valueChange)="itemCodeChange.emit($event)" (valueBlur)="calculateGtin.emit()"
+                    [pattern]="'^[0-9]*$'" [patternErrMsg]="'Only numbers allowed.'">
+                </app-text>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                <app-text [label]="'Layers'" [(value)]="stationDetail.Layers" [required]="true"></app-text>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                <app-text [label]="'Item In Layers'" [(value)]="stationDetail.ItemsInLayer" [required]="true"></app-text>
+            </div>
+
+            <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                <div class="field">
+                    <label>
+                        Barcode Type
+                        <span class="text-danger text-bold"> * </span>
+                    </label>
+
+                    <app-ng-select class="col-12" [items]="barcodeTypeList" [required]="true"
+                        [(value)]="stationDetail.BarcodeType" [bindLabel]="'label'" [bindValue]="'value'"
+                        [clearable]="false">
+                    </app-ng-select>
+                </div>
+            </div>
+            @if (stationDetail.BarcodeType == barcodeTypeEnum.SSCC){
+            <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                <div class="field">
+                    <label>
+                        SSCC Prefix
+                        <span class="text-danger text-bold"> * </span>
+                    </label>
+
+                    <app-ng-select class="col-12" [items]="ssccPrefixList" [required]="true"
+                        [(value)]="stationDetail.SSCCPrefix" [clearable]="false">
+                    </app-ng-select>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                <div class="field">
+                    <label>
+                        Filter Value
+                        <span class="text-danger text-bold"> * </span>
+                    </label>
+
+                    <app-ng-select class="col-12" [items]="filterValueList" [required]="true"
+                        [(value)]="stationDetail.FilterValue" [clearable]="false">
+                    </app-ng-select>
+                </div>
+            </div>
+            }
+            @if (showProductHeight){
+            <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                <div class="field">
+                    <app-text [label]="'Product Height'" [(value)]="stationDetail.ProductHeight"></app-text>
+                </div>
+            </div>
+            }
+        </div>
+    </div>

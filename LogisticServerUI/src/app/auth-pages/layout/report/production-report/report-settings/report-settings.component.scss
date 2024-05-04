@@ -1,0 +1,37 @@
+@media only screen and (max-width: 767px) {
+    .media-center{
+        justify-content: start !important;
+    }
+}
+@media screen and (max-width: 575px) {
+    .media-center{
+        justify-content: start !important;
+    }
+}
+
+@media screen and (max-width: 776px) {
+    .media-center{
+        justify-content: start !important;
+    }
+}
+//1186
+// @media screen and (max-width: 828px) {
+//     .media-center{
+//         // justify-content: start !important;
+//     }
+//     .mr-change{
+//         margin-right: 80px;
+//         }
+// }
+
+@media only screen and (min-width: 700px) and (max-width: 1172px){
+    .mr-change{
+        margin-right: 80px !important;
+        }
+}
+
+
+.media-center {
+    justify-content: end;
+}
+

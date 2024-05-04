@@ -1,0 +1,64 @@
+<div class="card">
+    <h6 class="mt-3 ms-2">HRF Details</h6>
+    <div class="card-body">
+        <div class="row">
+        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+
+            <div class="field">
+                <label>
+                    HRF1 Al
+                </label>
+
+                <app-ng-select class="col-12" [items]="hrfDetailslist"
+                    [(value)]="hrfDetail.HRF1.Name" [disabled]="readonly" [clearable]="false">
+                </app-ng-select>
+                <app-text [(value)]="hrfDetail.HRF1.Value" [disabled]="readonly"></app-text>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+            <div class="field">
+                <label>
+                    HRF2 Al
+                </label>
+                <app-ng-select class="col-12" [items]="hrfDetailslist"
+                    [(value)]="hrfDetail.HRF2.Name" [disabled]="readonly" [clearable]="false">
+                </app-ng-select>
+                <app-text [(value)]="hrfDetail.HRF2.Value" [disabled]="readonly"></app-text>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+            <div class="field">
+                <label>
+                    HRF3 Al
+                </label>
+                <app-ng-select class="col-12" [items]="hrfDetailslist"
+                    [(value)]="hrfDetail.HRF3.Name" [disabled]="readonly" [clearable]="false">
+                </app-ng-select>
+                <app-text [(value)]="hrfDetail.HRF3.Value" [disabled]="readonly"></app-text>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+            <div class="field">
+                <label>
+                    HRF4 Al
+                </label>
+                <app-ng-select class="col-12" [items]="hrfDetailslist"
+                    [(value)]="hrfDetail.HRF4.Name" [disabled]="readonly" [clearable]="false">
+                </app-ng-select>
+                <app-text [(value)]="hrfDetail.HRF4.Value" [disabled]="readonly"></app-text>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+            <div class="field">
+                <label>
+                    HRF5 Al
+                </label>
+                <app-ng-select class="col-12" [items]="hrfDetailslist"
+                    [(value)]="hrfDetail.HRF5.Name" [disabled]="readonly" [clearable]="false">
+                </app-ng-select>
+                <app-text [(value)]="hrfDetail.HRF5.Value" [disabled]="readonly"></app-text>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

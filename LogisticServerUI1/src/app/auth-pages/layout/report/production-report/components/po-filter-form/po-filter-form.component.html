@@ -1,0 +1,37 @@
+<div class="col-12 col-md-12 col-lg-12 col-sm-12">
+    <div class="field">
+        <label>
+            PO/Deliver
+            <span class="text-danger text-bold ng-star-inserted"> * </span>
+        </label>
+        <app-ng-select class="col-12" [items]="poList" [required]="true" [(value)]="selectedPo" (selectonChange)="onPoChange()"></app-ng-select>
+    </div>
+</div>
+<div class="col-12 col-md-12 col-lg-12 col-sm-12">
+    <div class="field">
+        <label>
+            Batch
+            <span class="text-danger text-bold ng-star-inserted"> * </span>
+        </label>
+        <app-ng-select class="col-12" [items]="batchList" [required]="true" [(value)]="filterFormData.BatchName" (selectonChange)="onBatchChange()"></app-ng-select>
+    </div>
+</div>
+
+<div class="col-12 col-md-12 col-lg-12 col-sm-12">
+    <div class="field">
+        <label>
+            GTIN
+            <span class="text-danger text-bold ng-star-inserted"> * </span>
+        </label>
+        <app-ng-select class="col-12" [items]="gtinList" [required]="true" [(value)]="filterFormData.GTIN" (selectonChange)="onGtinChange()"></app-ng-select>
+    </div>
+</div>
+<div class="col-12 col-md-12 col-lg-12 col-sm-12">
+    <div class="field">
+        <label>
+            Status
+            <span class="text-danger text-bold ng-star-inserted"> * </span>
+        </label>
+        <app-ng-select class="col-12" [items]="statusList" [required]="true" [(value)]="filterFormData.Status"></app-ng-select>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+.bg-img {
+    background-image: url("../../../../assets/scss/images/blue-bg.png");
+    background-size: 100vmax 100vmax;
+    background-attachment: fixed;
+    background-position: calc(50% + 2px) calc(50% - 4px);
+}
+
+.border-adjust{
+    border-top-right-radius: 80px 80px;
+    border-bottom-left-radius: 80px 80px;
+    margin-bottom: 10px;
+    // width: 379px;
+    width: 25rem; 
+    height: 60rem; //47
+    margin-top: 60px;
+    // opacity: 0.5;
+    background: #ffffff55 0% 0% no-repeat padding-box;
+    border-radius: 0px 87px 0px 68px;
+    // backdrop-filter: blur(30px) !important;
+}
+
+h1 {
+    font-size: 40px !important;//60px
+    text-align: left;
+    font: normal normal normal 60px/90px HP Simplified;
+    letter-spacing: 0px;
+    // color: #fff;
+   
+}
+hr {
+    position: relative;
+    top: 12px;//30px
+    border: none;
+    height: 3px;
+    // background: black;
+    // margin-bottom: 50px;
+    
+}
+.text-white {
+    --bs-text-opacity: 1;
+    color: rgba(255, 255, 255, 1) !important;
+}
+.chart-container{
+    color: rgba(255, 255, 255, 1) !important;
+}
+
+.field > label {
+    font-size: 13px;
+    color: #FFFFFF;
+}

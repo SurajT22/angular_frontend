@@ -1,0 +1,20 @@
+<div class="field">
+    <label for="fileInput">{{ label }}
+        @if (required) {
+        <span class="text-danger text-bold"> * </span>
+        }
+    </label>
+    <div class="input-control">
+        <input type="file" class="custom-file-upload" (change)="handleFileInput($event)" multiple />
+
+        <!-- Display selected files -->
+        <div *ngIf="selectedFilesList.length > 0">
+            <ul>
+                <li *ngFor="let file of selectedFilesList; let i = index">
+                    {{ file.name }}
+                    <button (click)="removeFile(i)" type="button" title="Remove">✖</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

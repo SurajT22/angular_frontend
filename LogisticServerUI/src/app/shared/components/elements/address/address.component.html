@@ -1,0 +1,92 @@
+@if (address) {
+  <div class="field pb-2 mb-0">{{ headerTitle }}</div>
+  <div class="row">
+    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+      <app-text
+        [label]="'Flat, House no., Building'"
+        [(value)]="address.address"
+        [required]="required"
+        [name]="name"
+      ></app-text>
+    </div>
+    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+      <app-text
+        [label]="'Area, Street, Sector, Village'"
+        [(value)]="address.area"
+        [name]="name"
+      ></app-text>
+    </div>
+    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+      <app-text
+        [label]="'Pincode'"
+        [(value)]="address.zipCode"
+        [pattern]="'^[a-zA-Z0-9]*$'"
+        [patternErrMsg]="'This field must be alpha numeric.'"
+        [name]="name"
+      ></app-text>
+    </div>
+    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+      <div class="field">
+        <label
+          >Country
+          @if (required) {
+            <span class="text-danger text-bold"> * </span>
+          }
+        </label>
+        <div>
+          <div>
+            <app-ng-select
+              class="col-12"
+              [items]="countries"
+              [required]="true"
+              [(value)]="address.country"
+              [clearable]="true"
+              (selectonChange)="onChangeCountry($event)"
+            >
+            </app-ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+      <div class="field">
+        <label
+          >State/Region
+          @if (required) {
+            <span class="text-danger text-bold"> * </span>
+          }
+        </label>
+        <div>
+          <div>
+            <app-ng-select
+              class="col-12"
+              [items]="regions"
+              [required]="true"
+              [(value)]="address.region"
+              [clearable]="true"
+              (selectonChange)="onChangeState($event)"
+            >
+            </app-ng-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+      <div class="field">
+        <label
+          >Town/City
+          @if (required) {
+            <span class="text-danger text-bold"> * </span>
+          }
+        </label>
+        <app-ng-select
+          class="col-12"
+          [items]="cities"
+          [required]="true"
+          [(value)]="address.city"
+        >
+        </app-ng-select>
+      </div>
+    </div>
+  </div>
+}

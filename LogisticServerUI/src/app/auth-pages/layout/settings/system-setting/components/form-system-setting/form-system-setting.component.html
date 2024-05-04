@@ -1,0 +1,68 @@
+<div class="form-layout-input">
+    <form #systemsettingForm="ngForm">
+        <div class="">
+            <div class="form-fieldset">
+                <div class="row">
+
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Report Format
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+
+                            <app-ng-select class="col-12" [items]="reportFormatList" [required]="true"
+                                [(value)]="systemsetting.ReportFormat" [clearable]="false">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Report View
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+
+                            <app-ng-select class="col-12" [items]="reportViewList" [required]="true"
+                                [(value)]="systemsetting.ReportView" [clearable]="false">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Date Format
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+
+                            <app-ng-select class="col-12" [items]="dateFormatList" [required]="true"
+                                [(value)]="systemsetting.DateFormat" [clearable]="false">
+                            </app-ng-select>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                        <div class="field">
+                            <label>
+                                Error Log
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+
+                            <app-ng-select class="col-12" [items]="errorLogList" [required]="true"
+                                [(value)]="systemsetting.ErrorLog" [clearable]="false">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-header pb-0 mt-1 mb-0 border-bottom-0 border-top border-color-gray">
+                        <div class="form-header-inner" style="justify-content: flex-end">
+                            <div class="right">
+                                <app-form-btn-pr [btnLabel]="'Save'" (btnClick)="onBtnClick()"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

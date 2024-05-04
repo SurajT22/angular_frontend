@@ -1,0 +1,30 @@
+<div class="field">
+  <label>{{ label }}</label>
+  @if (required) {
+    <span class="text-danger text-bold"> * </span>
+  }
+  <div class="input-control">
+    <input type="text" class="input" [(ngModel)]="segment1" #segment1Box="ngModel"  (input)="onSegmentChange($event, 0)"
+      maxlength="3" placeholder="000">
+    <span class="dot">.</span>
+    <input type="text" class="input" [(ngModel)]="segment2"  (input)="onSegmentChange($event, 1)"
+      maxlength="3" placeholder="000">
+    <span class="dot">.</span>
+    <input type="text" class="input" [(ngModel)]="segment3"  (input)="onSegmentChange($event, 2)"
+      maxlength="3" placeholder="000">
+    <span class="dot">.</span>
+    <input type="text" class="input" [(ngModel)]="segment4"  (input)="onSegmentChange($event, 3)"
+      maxlength="3" placeholder="000">  
+  </div>
+  
+  @if (isErrShow && segment1Box.invalid && (segment1Box.dirty || segment1Box.touched)) {
+    <div class="error-msg-text">
+      @if (segment1Box.hasError("required")) {
+        <span>This field is required.</span>
+      }
+      @if (segment1Box.hasError("pattern")) {
+        <span>{{ patternErrMsg }}</span>
+      }
+    </div>
+  }
+</div>

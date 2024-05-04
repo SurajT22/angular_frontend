@@ -1,0 +1,26 @@
+<app-page-header [headerLabel]="'Registration Access'"></app-page-header>
+<div class="form-layout-input">
+    <form #clientAccessForm="ngForm">
+        <div class="form-outer">
+        <div class="form-fieldset">
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                    <app-ip-address
+                    [label]="'Client IP'"
+                    [(ipAddress)]="clientIp"
+                    [required]="true"
+                    ></app-ip-address>
+                </div>
+                <div class="form-header pb-0 mt-1 mb-0 border-bottom-0 border-top border-color-gray">
+                    <div class="form-header-inner" style="justify-content: flex-end">
+                        <div class="right">
+                            <app-form-btn-pr [btnLabel] = "'Access'" (btnClick)="onAccessBtnClick()"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+  

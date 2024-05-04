@@ -1,0 +1,121 @@
+<app-page-header [headerLabel]="'SYSTEM SETTING'"></app-page-header>
+<div class="row mt-2">
+    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+        <div class="form-layout-input">
+            <form #backuprestoreForm="ngForm">
+                <div class="form-outer">
+                    <div class="form-fieldset">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h6 class="mb-2" style="font-size: 13px;color: #4A4A4A;">Database</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <div class="mdi mdi-progress-download mdi-48px"></div>
+                                        <app-btn-pr [btnLabel]="'Data Restore'" (btnClick)="onRestoreDatabase()">
+                                        </app-btn-pr>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <div class="mdi mdi-database-import mdi-48px"></div>
+                                        <app-btn-pr [btnLabel]="'Data Backup'" (btnClick)="onBackupDatabase()">
+                                        </app-btn-pr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+        <div class="form-layout-input">
+            <form #backuprestoreForm="ngForm">
+                <div class="form-outer">
+                    <div class="form-fieldset">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h6 class="mb-2" style="font-size: 13px;color: #4A4A4A;">Configuration</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <div class="mdi mdi-file-restore mdi-48px"></div>
+                                        <app-btn-pr [btnLabel]="'File Restore'" (btnClick)="onRestoreConfiguration()">
+                                        </app-btn-pr>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                                <div class="card text-center">
+                                    <div class="card-body">
+                                        <div class="mdi mdi-file-replace mdi-48px"></div>
+                                        <app-btn-pr [btnLabel]="'File Backup'" (btnClick)="onBackupConfiguration()">
+                                        </app-btn-pr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-12 col-md-6 col-lg-6 col-sm-6 mt-4">
+        <div class="form-layout-input">
+            <form #backuprestoreForm="ngForm">
+                <div class="form-outer">
+                    <div class="form-fieldset">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h6 class="mb-2" style="font-size: 13px;color: #4A4A4A;">Atuo Backup</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                                <div class="field">
+                                    <app-checkbox [label]="'Auto Backup'" [(value)]="autobackupsetting.AutoBackup">
+                                    </app-checkbox>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                                <div class="field">
+                                    <app-checkbox [label]="'Incremental Backup'"
+                                        [(value)]="autobackupsetting.IncrementalBackup">
+                                    </app-checkbox>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                                <div class="field">
+                                    <label>
+                                        Duration of Backup
+                                    </label>
+                                    <app-ng-select class="col-12" [required]="true" [clearable]="false"
+                                        [items]="durationList" [(value)]="autobackupsetting.DurationOfBackup">
+                                    </app-ng-select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                                <app-date [required]="true" [withTimepicker]="true" [displayDateFormat]="'HH:mm:ss.SSS DD-MM-YYYY'" [label]="'Scheduled Time'" [(value)]="autobackupsetting.ScheduledTime">
+                                </app-date>
+                            </div>
+                        </div>
+                        <app-form-btn-pr [btnLabel]="'Save'" (btnClick)="onBtnClick()"></app-form-btn-pr>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

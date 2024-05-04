@@ -1,0 +1,68 @@
+
+
+
+
+
+
+.bg-img {
+    background-image: url("../../../../assets/scss/images/blue-bg.png");
+    background-size: 100vmax 100vmax;
+    background-attachment: fixed;
+    background-position: calc(50% + 2px) calc(50% - 4px);
+    //for full screen
+    background-size: cover;
+    height: 905px;
+    padding: 0;
+    color: white;
+}
+.ng-select .ng-select-single .ng-has-value .ng-select-container {
+    /* Apply custom background color */
+    background: linear-gradient(90deg, #c0eaf5 0%, #1760d6 100%) !important;
+  }
+  
+.card{
+    border-radius: 0px 30px 0px 30px;
+    border: 0;
+}
+.field > label {
+    font-size: 13px;
+    color: #FFFFFF;
+}
+
+.avatar-lg {
+    height: 4.5rem;
+    width: 4.5rem;
+}
+.rounded-circle {
+    border-radius: 50% !important;
+}
+.bg-soft-light {
+    --ct-bg-opacity: 0.25;
+    background-color: rgba(236, 242, 245, var(--ct-bg-opacity)) !important;
+    background-color: rgba(var(--ct-light-rgb), var(--ct-bg-opacity)) !important;
+}
+.shadow-none {
+    box-shadow: none!important;
+}
+.bg-purple {
+    --ct-bg-opacity: 1;
+    background-color: rgba(136, 146, 214, var(--ct-bg-opacity)) !important;
+    background-color: rgba(var(--ct-purple-rgb), var(--ct-bg-opacity)) !important;
+}
+.avatar-title{
+    display: inline-block;
+    line-height: 1.0625rem;
+    margin: 26px 0 0;
+    font-size: 44px;
+    vertical-align: middle;
+    // color: white;
+}
+@media screen and (max-width:575px) {
+    .bg-img{
+        height: 2035px;
+    }
+}
+
+// .ngselectvalue{
+//     background: linear-gradient(90deg, #c0eaf5  0%, #1760D6 100%) !important;
+// }

@@ -1,0 +1,135 @@
+
+
+
+
+<div class=" row bg-img">
+  <div class="row mt-4">
+      <div class="col-xl-3 col-md-2">
+          <div class="widget-rounded-circle shadow-none bg-purple card"
+              style="background: linear-gradient(90deg, #c0eaf5  0%, #1760D6 100%) !important;">
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-6">
+                          <div class="avatar-lg rounded-circle bg-soft-light"><i
+                                  class="lni lni-package font-28 avatar-title"></i></div>
+                      </div>
+                      <div class="col-6">
+                          <div class="text-end">
+                              <h2 class="text-white mt-2"><span><span>{{dashboardList.NoOfBatch}}</span></span></h2>
+                              <p class="text-white mb-0 text-truncate">Total Batch</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-xl-3 col-md-2">
+          <div class="widget-rounded-circle shadow-none bg-purple card"
+              style="background: linear-gradient(90deg, #c2d3ed  0%, #5F3790 100%) !important;">
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-6">
+                          <div class="avatar-lg rounded-circle bg-soft-light"><i
+                                  class="mdi mdi-clipboard-text-play-outline font-28 avatar-title "></i></div>
+                      </div>
+                      <div class="col-6">
+                          <div class="text-end">
+                              <h2 class="text-white mt-2"><span><span>{{dashboardList.NoOfProduct}}</span></span></h2>
+                              <p class="text-white mb-0 text-truncate">Total Product</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="col-xl-3 col-md-2">
+          <div class="widget-rounded-circle shadow-none bg-purple card"
+              style="background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%) !important;">
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-6">
+                          <div class="avatar-lg rounded-circle bg-soft-light"><i
+                                  class="mdi mdi-devices font-28 avatar-title "></i></div>
+                      </div>
+                      <div class="col-6">
+                          <div class="text-end">
+                              <h2 class="text-white mt-2">
+                                  <span><span>{{dashboardList.NoOfDeviceRegistered}}</span></span></h2>
+                              <p class="text-white mb-0 text-truncate">Total Device</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-xl-3 col-md-2">
+          <div class="widget-rounded-circle shadow-none bg-purple card"
+              style="background: linear-gradient(90deg, #d3d8e7 0%, #1844eb 100%) !important">
+              <div class="card-body">
+                  <div class="row">
+                      <div class="col-6">
+                          <div class="avatar-lg rounded-circle bg-soft-light"><i
+                                  class="mdi mdi-robot-industrial font-28 avatar-title "></i></div>
+                      </div>
+                      <div class="col-6">
+                          <div class="text-end">
+                              <h2 class="text-white mt-2"><span><span>{{dashboardList.NoOfLines}}</span></span></h2>
+                              <p class="text-white mb-0 text-truncate">Total Lines</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+
+
+  <div class="row">
+      <div class="col-12 col-md-7 col-lg-7 col-sm-7">
+          <img src="../../../../assets/scss/images/Group.png" style="margin-top: 60px;" />
+      </div>
+      <div class="col-12 col-md-4 col-lg-4 col-sm-4 d-flex justify-content-end ms-4 mt-4">
+
+          <form #addBatchForm="ngForm">
+              <div class="form-outer">
+                  <div class="form-fieldset">
+                      <div class="row">
+                          <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                              <div class="field dashboard-container">
+                                  <label>
+                                      Batch List
+                                      <span class="text-danger text-bold"> * </span>
+                                  </label>
+                                  <app-ng-select class="col-12 dashboard-ng-select" [required]="true"
+                                      [items]="BatchList" [bindLabel]="'label'" [bindValue]="'value'"
+                                      [(value)]="dashBatch.batchName" (selectonChange)="onBatchSelect()">
+                                  </app-ng-select>
+                              </div>
+                          </div>
+                          <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                              <app-pie-chart [labels]="pieChartDashboard.labels" [data]="pieChartDashboard.data"
+                                  [backgroundColors]="pieChartDashboard.backgroundColors">
+                              </app-pie-chart>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </form>
+
+
+
+          <!-- <app-pie-chart [labels]="['Label 1', 'Label 2', 'Label 3']" [data]="[300, 240, 100]"
+              [backgroundColors]="['#522D7B', '#4789C1', '#1956DE']"></app-pie-chart> -->
+
+
+      </div>
+      <div class="col-12 col-md-1 col-lg-1 col-sm-1"></div>
+  </div>
+  <div class="row">
+      <div class="col-12"></div>
+  </div>
+</div>

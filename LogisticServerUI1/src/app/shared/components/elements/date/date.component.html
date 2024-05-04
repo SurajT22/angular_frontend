@@ -1,0 +1,46 @@
+<div class="field">
+  <label
+    >{{ label }}
+    @if(required){
+      <span class="text-danger text-bold"> * </span>
+    }
+    </label>
+  <div class="input-control has-icon">
+    <input
+      type="text"
+      class="input"
+      name="{{ uniqueId }}"
+      bsDatepicker
+      placement="top"
+      [(ngModel)]="value"
+      autocomplete="off"
+      [required]="required"
+      [disabled]="disabled"
+      [bsConfig]="{
+        showWeekNumbers: false,
+        dateInputFormat: displayDateFormat,
+        isAnimated: true,
+        adaptivePosition: true,
+        withTimepicker: withTimepicker,
+        keepDatepickerOpened : withTimepicker
+      }"
+      #datepicker="bsDatepicker"
+      #date="ngModel"
+      (ngModelChange)="valueChange.emit(value)"
+    />
+    <div
+      class="form-icon-right"
+      (click)="datepicker.toggle()"
+      [attr.aria-expanded]="datepicker.isOpen"
+    >
+      <i aria-hidden="true" class="mdi mdi-calendar-blank"></i>
+    </div>
+    @if(date.invalid && (date.dirty || date.touched)){
+      <div class="error-msg-text">
+        @if(date.hasError('required')){
+          <span>This field is required.</span>
+        }
+      </div>
+    }
+  </div>
+</div>

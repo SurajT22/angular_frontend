@@ -1,0 +1,95 @@
+<div class="leftside-menu menuitem-active">
+  <!-- LOGO -->
+  <a href="javascript:;" class="logo text-center logo-light pt-1">
+    <span class="logo-lg bg-gray">
+      <img
+        src="../../../../assets/scss/images/logo.svg"
+        alt="Logistic Server"
+        width="110"
+      />
+    </span>
+    <!-- <span class="logo-sm bg-white bg-gray">
+      <img
+        src="../../../../assets/scss/images/sidebar_small_icon.png"
+        alt=""
+        width="41"
+      />
+    </span> -->
+  </a>
+
+  <!-- LOGO -->
+  <!-- <a href="javascript:;" class="logo text-center logo-dark">
+      <span class="logo-lg bg-white">
+        <img
+          src="../../../../assets/scss/images/sidebar_small_icon.png"
+          alt=""
+          width="51"
+        />
+      </span>
+      <span class="logo-sm bg-white">
+        <img
+          src="../../../../assets/scss/images/sidebar_small_icon.png"
+          alt=""
+          width="51"
+        />
+      </span>
+    </a> -->
+
+  <div
+    class="h-100 show mt-1"
+    id="leftside-menu-container"
+    data-simplebar="init"
+  >
+    <div class="simplebar-wrapper" style="margin: 0px">
+      <div class="simplebar-height-auto-observer-wrapper">
+        <div class="simplebar-height-auto-observer"></div>
+      </div>
+      <div class="simplebar-mask">
+        <div class="simplebar-offset" style="right: 0px; bottom: 0px">
+          <div
+            class="simplebar-content-wrapper"
+            style="height: 100%; overflow: hidden scroll"
+          >
+            <div class="simplebar-content" style="padding: 0px">
+              <!--- Sidemenu -->
+              <ul class="side-nav">
+                @for (item of filterNavbarItems; track item) {
+                  @if (item.children.length > 0) {
+                    <app-collapsible-nav-item
+                      [navbarItem]="item"
+                    ></app-collapsible-nav-item>
+                  } @else {
+                    <app-nav-item [navbarItem]="item"></app-nav-item>
+                  }
+                }
+              </ul>
+              <!--- Sidemenu -->
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="simplebar-placeholder"
+        style="width: 260px; height: 1613px"
+      ></div>
+    </div>
+    <div
+      class="simplebar-track simplebar-horizontal"
+      style="visibility: hidden"
+    >
+      <div class="simplebar-scrollbar" style="width: 0px; display: none"></div>
+    </div>
+    <div class="simplebar-track simplebar-vertical" style="visibility: visible">
+      <div
+        class="simplebar-scrollbar"
+        style="
+          height: 180px;
+          transform: translate3d(0px, 0px, 0px);
+          display: block;
+        "
+      ></div>
+    </div>
+  </div>
+  <!-- Sidebar -left -->
+</div>

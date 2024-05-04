@@ -1,0 +1,69 @@
+<app-page-header [headerLabel]="'Audit Report Details'"></app-page-header>
+<div class="mx-2">
+    <form #prefixForm="ngForm">
+        <div class="form-fieldset">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                    <div class="field">
+                        <label>
+                            Station
+                        </label>
+                        <app-ng-select class="col-12" [required]="true" [items]="auditReportPageData.Station">
+                        </app-ng-select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                    <div class="field">
+                        <label>
+                            Report Selection
+                        </label>
+                        <app-ng-select class="col-12" [items]="reportTypeList" [bindLabel]="'label'"
+                            [bindValue]="'value'" [(value)]="reportSelection"></app-ng-select>
+                    </div>
+                </div>
+                @if (reportSelection == reportSelectionEnum.DATE) {
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                    <app-date-range [label]="'Date Range'" [(dateRange)]="dateRange">
+                    </app-date-range>
+                </div>
+                }
+                @if(reportSelection == reportSelectionEnum.USER_NAME){
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                    <div class="field">
+                        <label>
+                            User Name
+                        </label>
+                        <app-ng-select class="col-12" [items]="auditReportPageData.UserName" [(value)]="userName"
+                            [required]="true"></app-ng-select>
+                    </div>
+                </div>
+                }
+                @if(reportSelection == reportSelectionEnum.BATCH_NAME){
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                    <div class="field">
+                        <label>
+                            Batch
+                        </label>
+                        <app-ng-select class="col-12" [items]="auditReportPageData.BatchName" [(value)]="batchName"
+                            [required]="true"></app-ng-select>
+                    </div>
+                </div>
+                }
+            </div>
+            <div class="form-header p-0 m-0 border-0">
+                <div class="form-header-inner justify-content-end">
+                    <div class="center">
+                        <div class="two-button">
+                            <app-form-btn-pr [btnLabel]="'View'" (btnClick)="onViewBtnClick()"></app-form-btn-pr>
+                            <app-btn-pr [btnLabel]="'Export'" [class]="'footer-btn'" [disabled]="!(auditReporRes.FileData && auditReporRes.FileData.length > 0)"
+                                (btnClick)="onExportClick()">
+                            </app-btn-pr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<app-list-audit-report [auditReport]="auditReporRes" [currentPage]="currentPage" [pageSize]="pageSize"
+    [totalCount]="totalCount" (pageChange)="pageChange($event)"></app-list-audit-report>

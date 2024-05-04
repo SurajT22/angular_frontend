@@ -1,0 +1,13 @@
+<div class="col-12 col-md-12 col-lg-12 col-sm-12">
+    <div class="field">
+        <label>
+            Batch
+            <span class="text-danger text-bold ng-star-inserted"> * </span>
+        </label>
+        <app-ng-select class="col-12" [items]="batchList" [(value)]="filterFormData.BatchName" (selectonChange)="onBatchChange()"
+            [required]="true"></app-ng-select>
+    </div>
+</div>
+<div class="col-12 col-md-12 col-lg-12 col-sm-12">
+    <app-text [label]="'Product Name'" [disabled]="true" [(value)]="filterFormData.ProductName"></app-text>
+</div>

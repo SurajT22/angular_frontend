@@ -1,0 +1,20 @@
+<app-page-header [headerLabel]="'HELP'"></app-page-header>
+
+<div class="form-layout-input">
+    <form #backuprestoreForm="ngForm">
+        <div class="form-outer">
+            <div class="form-fieldset">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="text-center">
+                            <div class="">
+                                <div class="mdi mdi-file-pdf" style="font-size: 200px;"></div>
+                                <app-btn-pr [btnLabel]="'User Manual'" (btnClick)="getUserManual()"></app-btn-pr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

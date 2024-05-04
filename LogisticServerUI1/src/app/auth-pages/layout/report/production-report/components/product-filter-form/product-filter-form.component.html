@@ -1,0 +1,36 @@
+<div class="col-12 col-md-12 col-lg-12 col-sm-12">
+    <div class="field">
+        <label>
+            Product
+            <span class="text-danger text-bold ng-star-inserted"> * </span>
+        </label>
+        <app-ng-select class="col-12" [required]="true" [items]="productList" [(value)]="filterFormData.ProductName" (selectonChange)="onProductChange()"></app-ng-select>
+    </div>
+</div>
+<div class="col-12 col-md-12 col-lg-12 col-sm-12">
+    <div class="field">
+        <label>
+            Batch
+            <span class="text-danger text-bold ng-star-inserted"> * </span>
+        </label>
+        <app-ng-select class="col-12" [required]="true" [items]="batchList" [(value)]="filterFormData.BatchName" (selectonChange)="onBatchChange()"></app-ng-select>
+    </div>
+</div>
+<div class="col-12 col-md-12 col-lg-12 col-sm-12">
+    <div class="field">
+        <label>
+            GTIN
+            <span class="text-danger text-bold ng-star-inserted"> * </span>
+        </label>
+        <app-ng-select class="col-12" [required]="true" [items]="gtinList" [(value)]="filterFormData.GTIN" (selectonChange)="onGtinChange()"></app-ng-select>
+    </div>
+</div>
+<div class="col-12 col-md-12 col-lg-12 col-sm-12">
+    <div class="field">
+        <label>
+            Status
+            <span class="text-danger text-bold ng-star-inserted"> * </span>
+        </label>
+        <app-ng-select class="col-12" [required]="true" [items]="statusList" [(value)]="filterFormData.Status"></app-ng-select>
+    </div>
+</div>

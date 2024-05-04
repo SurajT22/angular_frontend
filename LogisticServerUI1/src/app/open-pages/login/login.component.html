@@ -1,0 +1,179 @@
+@if (userAuthenticateReq) {
+  <section class="main__section">
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-12 col-sm-12 col-lg-7 col-md-7 col-xs-7 h-hidden-mobile"
+        >
+          <div class="login_main_image">
+            <img
+              src="../../../assets/scss/images/login_image.svg"
+              alt="willgig login image"
+              class="img-fluid"
+              width="90%"
+            />
+          </div>
+        </div>
+        @if (!isForgotPwdView) {
+          <div class="col-12 col-sm-12 col-lg-5 col-md-5 col-xs-5">
+            <div class="login_input_area">
+              <div class="row">
+                <div class="col-12 col-sm- 12 col-md-12 col-lg-12">
+                  <!-- <div class="login_company_logo">
+                <img
+                  src="../../../assets/scss/images/logo.png"
+                  alt="willgig logo"
+                />
+              </div> -->
+                  <div class="login_form_text">
+                    <h2>Welcome</h2>
+                    <p>Please sign in to your account</p>
+                  </div>
+
+                  <form
+                    class="login-wrapper"
+                    [formGroup]="signInForm"
+                    (ngSubmit)="login()"
+                  >
+                    <div class="big_input_control">
+                      <input
+                        type="text"
+                        name="username"
+                        class="input"
+                        placeholder=""
+                        autocomplete="username"
+                        formControlName="username"
+                      />
+                      <div class="auth-label">
+                        User Name<span class="text-danger text-bold"> * </span>
+                      </div>
+                      <div class="autv-icon">
+                        <i aria-hidden="true" class="lni lni-user"></i>
+                      </div>
+                    </div>
+
+                    <div class="big_input_control">
+                      <input
+                        name="password"
+                        [type]="isPwdShow ? 'text' : 'password'"
+                        class="input"
+                        autocomplete="current-password"
+                        formControlName="pwd"
+                      />
+                      <div class="auth-label">
+                        Password <span class="text-danger text-bold"> * </span>
+                      </div>
+                      <div class="autv-icon">
+                        <i aria-hidden="true" class="lni lni-lock-alt"></i>
+                      </div>
+                      <div
+                        class="autv-icon-right"
+                        (click)="isPwdShow = !isPwdShow"
+                        style="cursor: pointer"
+                      >
+                        <i
+                          [class]="
+                            isPwdShow === true
+                              ? 'mdi mdi-eye-outline'
+                              : 'mdi mdi-eye-off-outline'
+                          "
+                        ></i>
+                      </div>
+                    </div>
+
+                    <div class="f_pass_text">
+                      <a href="javascript:void(0);" (click)="showForgetPwdModal()"
+                        >Forgot Password?</a
+                      >
+                    </div>
+
+                    <div class="buttom_control login">
+                      <button
+                        type="submit"
+                        aria-hidden="false"
+                        class="button login_button"
+                        [disabled]="signInForm.invalid"
+                      >
+                        <span> Sign In </span>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+
+        <!-- @if (isForgotPwdView) {
+          <div class="col-12 col-sm-12 col-lg-5 col-md-5 col-xs-5">
+            <div class="login_input_area">
+              <div class="row">
+                <div class="col-12 col-sm- 12 col-md-12 col-lg-12">
+                  <div class="login_company_logo">
+                  <img
+                    src="../../../assets/scss/images/logo.png"
+                    alt="willgig logo"
+                  />
+                </div>
+                  <div class="login_form_text">
+                    <h2>Recover Account</h2>
+                    <p>Reset your account password.</p>
+                    <p class="recover-text">
+                      Enter your email and click on the confirm button to reset
+                      your password. We'll send you an email detailing the steps
+                      to complete the procedure.
+                    </p>
+                  </div>
+
+                  <form
+                    class="login-wrapper"
+                    [formGroup]="pwdResetForm"
+                    (ngSubmit)="sendPwdResetReq()"
+                  >
+                    <div class="big_input_control">
+                      <input
+                        type="text"
+                        name="email"
+                        class="input"
+                        formControlName="emailId"
+                      />
+                      <div class="auth-label">
+                        Email Id<span class="text-danger text-bold"> * </span>
+                      </div>
+                      <div class="autv-icon">
+                        <i aria-hidden="true" class="lni lni-envelope"></i>
+                      </div>
+                    </div>
+
+                    <div class="buttom_control login forgot-pass-div">
+                      <button
+                        type="button"
+                        aria-hidden="false"
+                        class="button login_button is-cancel-btn"
+                        (click)="changeView(false)"
+                      >
+                        <i class="mdi mdi-keyboard-backspace mx-2"></i
+                        ><span> Cancel</span>
+                      </button>
+                      <button
+                        type="submit"
+                        aria-hidden="false"
+                        class="button login_button"
+                        [disabled]="pwdResetForm.invalid"
+                      >
+                        <span> Confirm</span>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        } -->
+      </div>
+    </div>
+  </section>
+}
+
+<app-change-password-dialog></app-change-password-dialog>
+<app-forget-password-dialog></app-forget-password-dialog>

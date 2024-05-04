@@ -1,0 +1,33 @@
+<div class="field">
+  <label
+    >{{ label }}
+    @if (required) {
+      <span class="text-danger text-bold"> * </span>
+    }
+  </label>
+  <div class="input-control">
+    <input
+      type="text"
+      class="input"
+      [(ngModel)]="value"
+      [required]="required"
+      #textBox="ngModel"
+      name="{{ uniqueId }}"
+      (ngModelChange)="valueChange.emit(value)"
+      [pattern]="pattern"
+      [disabled]="disabled"
+      [placeholder]="placeholder"
+      (blur)="valueBlur.emit(value)"
+    />
+    @if (isErrShow && textBox.invalid && (textBox.dirty || textBox.touched)) {
+      <div class="error-msg-text">
+        @if (textBox.hasError("required")) {
+          <span>This field is required.</span>
+        }
+        @if (textBox.hasError("pattern")) {
+          <span>{{ patternErrMsg }}</span>
+        }
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="modal" id="inward-verify-dialog" class="modal fade in oee_dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Verify File Data</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="hideModal()"></button>
+            </div>
+            <div class="modal-body pt-0 pb-4">
+                <div class="row justify-content-center mb-2">
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                        <p>
+                            Batch Name : {{verifyData.BatchName}} <br />
+                            EXP : {{verifyData.ExpiryDate}} <br />
+                            MFG : {{verifyData.MFGDate}} <br />
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    @for (item of verifyData.LevelDetails; track $index) {
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                        <div class="row">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                GTIN : {{item.GTIN}}
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                Packaging Level : {{item.PackagingLevel}}
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                Quantity : {{item.Quantity}}
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+            </div>
+            <div class="modal-footer p-2 justify-content-center">
+                <div class="form-header-inner">
+                    <div class="right">
+                        <div class="two-button">
+                            <button class="btn is-cancel-light is-light" (click)="onCancelClick()">
+                                Cancel
+                            </button>
+                            <button class="btn is-primary-btn is-primary" (click)="onOkClick()">
+                                Ok
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

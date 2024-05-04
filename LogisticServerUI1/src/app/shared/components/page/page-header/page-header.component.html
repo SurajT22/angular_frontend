@@ -1,0 +1,89 @@
+<div class="page-header top-header border-0 pt-0 pb-0">
+  <div class="page-header-inner justify-content-start">
+    @if (navigateVisible) {
+      <span class="page-back" (click)="navigateBack()">
+        <i class="uil uil-arrow-left pe-1 fs-1"></i>
+      </span>
+    }
+    <div class="left">
+      <h3 class="text-break">
+        <span>{{ headerLabel }} </span>
+        <span>
+          <nav
+            style="
+              font-size: 13px;
+              --bs-breadcrumb-divider: url(
+                &#34;data:image/svg + xml,
+                %3Csvgxmlns=&quot;http://www.w3.org/2000/svg&quot;width=&quot;8&quot;height=&quot;8&quot;%3E%3Cpathd=&quot;M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z&quot;fill=&quot;%238c8fa3&quot;/%3E%3C/svg%3E&#34;
+              );
+            "
+            aria-label="breadcrumb"
+          >
+            <ol class="breadcrumb mb-0">
+              @for (breadcrumb of breadCrumbs; track breadcrumb) {
+                <li
+                  [class]="
+                    breadcrumb.routeLink
+                      ? 'breadcrumb-item '
+                      : 'breadcrumb-item active'
+                  "
+                >
+                  <a (click)="onBreadCums(breadcrumb.routeLink)">{{
+                    breadcrumb.title
+                  }}</a>
+                </li>
+              }
+            </ol>
+          </nav>
+        </span>
+      </h3>
+    </div>
+    @if (btnVisible) {
+      <div class="right ms-auto">
+        <div class="btn-group">
+          @if (btnLink) {
+            <a
+              type="button"
+              class="btn is-primary-btn is-primary border-right-bottom"
+              [routerLink]="btnLink"
+              ><i class="{{ btnIcon }}"></i>
+              <span class="ms-2">{{ btnLabel }}</span></a
+            >
+          }
+          @if (!btnLink) {
+            <a
+              class="btn is-primary-btn is-primary border-right-bottom"
+              (click)="onBtnClick()"
+              ><i class="{{ btnIcon }}"></i> <span>{{ btnLabel }}</span></a
+            >
+          }
+          @if (menuBtnItems.length > 0) {
+            <ng-container>
+              <a
+                type="button"
+                class="btn is-primary-btn is-primary dropdown-toggle dropdown-toggle-split border-start border-white border-0"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end btn-drop-area">
+                @for (menu of menuBtnItems; track menu) {
+                  <li (click)="onMenuClick(menu)">
+                    <div class="dropdown-item is-media">
+                      <div class="icon">
+                        <i aria-hidden="true" class="{{ menu.iconClass }}"></i>
+                      </div>
+                      <div class="meta">
+                        <span>{{ menu.title }}</span>
+                      </div>
+                    </div>
+                  </li>
+                }
+              </ul>
+            </ng-container>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>

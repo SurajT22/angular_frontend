@@ -1,0 +1,39 @@
+<app-page-header [headerLabel]="'Email Configuration'"></app-page-header>
+
+
+<div class="form-layout-input">
+    <form #EmailconfigurationForm="ngForm">
+        <div class="form-outer">
+            <div class="form-fieldset">
+                <div class="row">
+                    <div class="col-3 col-md-3 col-lg-3 col-sm-3"></div>
+                    <div class="col-6 col-md-6 col-lg-6 col-sm-6">
+                        <div class="row">
+                            <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                                <app-text [label]="'SMTP Server'" [(value)]="emailConfiguration.SMTPServer"
+                                    [required]="true"></app-text>
+                            </div>
+                            <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                                <app-text [label]="'Port Number'" [(value)]="emailConfiguration.PortNumber"
+                                    [required]="true"></app-text>
+                            </div>
+                            <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                                <app-email [label]="'Sender Email Address'"
+                                    [(value)]="emailConfiguration.SenderEmailAddress" [required]="true">
+                                </app-email>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 col-md-3 col-lg-3 col-sm-3"></div>
+                </div>
+                <div class="form-header pb-0 mt-1 mb-0 border-bottom-0 border-top border-color-gray">
+                    <div class="form-header-inner" style="justify-content: flex-end">
+                        <div class="right">
+                            <app-form-btn-pr [btnLabel]="'Update'" (btnClick)="onUpdateBtnClick()" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,107 @@
+<div class="page-header top-header border-0 pt-0 pb-0">
+    <div class="page-header-inner justify-content-start"><span class="page-back ng-star-inserted"><i
+                class="uil uil-arrow-left pe-1 fs-1"></i></span>
+        <div class="left">
+            <h3 class="text-break"><span>Batch Detail List
+                </span><span>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb mb-0"></ol>
+                    </nav>
+                </span></h3>
+        </div>
+        <div class="right ms-auto ng-star-inserted">
+            <div class="btn-group">
+                <a type="button" class="btn is-primary-btn is-primary border-right-bottom ng-star-inserted"
+                    [routerLink]="['inward']">
+                    <i class="mdi mdi-plus-thick"></i>
+                    <span class="ms-2">Inward Batch</span>
+                </a>
+            </div>
+            <div class="btn-group">
+                <a type="button" class="btn is-primary-btn is-primary border-right-bottom ng-star-inserted"
+                    [routerLink]="['addbatch']">
+                    <i class="mdi mdi-plus-thick"></i>
+                    <span class="ms-2">Add Batch</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form #batchListForm="ngForm">
+    <div class="form-fieldset">
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                <div class="field">
+                    <label>
+                        Batch Name
+                    </label>
+                    <app-ng-select class="col-12" 
+                        [items]="batchNameList" [(value)]="selectedBatchName" (selectonChange)="getBatchByFilter()">
+                    </app-ng-select>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                <div class="field">
+                    <label>
+                        Packaging Type
+                    </label>
+                    <app-ng-select class="col-12" 
+                        [items]="packagingTypeList" [(value)]="selectedPackagingType"
+                        [bindLabel]="'label'" [bindValue]="'value'"
+                        (selectonChange)="onPackagingTypeChange()">
+                    </app-ng-select>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table oee-custom-table table-responsive text-center">
+                <thead>
+                    <tr>
+                        <th class="text-center" width="120">Batch Name</th>
+                        <th class="text-center" width="180">GTIN</th>
+                        <th class="text-center" width="150">Expiry Date</th>
+                        <th class="text-center" width="150">Quantity</th>
+                        <th class="text-center" width="150">Regulatory</th>
+                        <th class="text-center" width="150">Packageing Level</th>
+                        <th class="text-center" width="150">Batch Status</th>
+                        <th class="text-center" width="150">Created Date</th>
+                        <th class="text-center" width="150">Company Prefix</th>
+                        <th class="text-center" width="150">Shipment Type</th>
+                        <th class="text-center" width="150">Inward Type</th>
+                        <th class="text-center" width="150">Product Name</th>
+                        <th class="text-center" width="150">Account Name</th>
+                        <th class="text-center" width="120">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (batch of batchList; track batch) {
+                    <tr>
+                        <td width="120">{{ batch.BatchName }}</td>
+                        <td width="180">{{ batch.GTIN }}</td>
+                        <td width="150">{{ batch.ExpiryDate }}</td>
+                        <td width="150">{{ batch.Quantity }}</td>
+                        <td width="150">{{ batch.Regulatory }}</td>
+                        <td width="150">{{ batch.PackagingLevel }}</td>
+                        <td width="150">{{ batch.BatchStatus }}</td>
+                        <td width="150">{{ batch.CreatedDate }}</td>
+                        <td width="150">{{ batch.CompanyPrefix }}</td>
+                        <td width="150">{{ batch.ShipmentType }}</td>
+                        <td width="150">{{ batch.InwardType }}</td>
+                        <td width="150">{{ batch.ProductName }}</td>
+                        <td width="150">{{ batch.AccountName }}</td>
+
+                        <td width="120">
+                            <a href="javascript:;" class="me-2" tooltip="Edit Client" placement="top"
+                                [routerLink]="['edit', batch.BatchName, batch.GTIN, batch.PackagingLevel]">
+                                <i class="lni lni-pencil text-primary"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>

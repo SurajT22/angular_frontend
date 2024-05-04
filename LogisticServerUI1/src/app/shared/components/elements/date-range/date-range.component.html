@@ -1,0 +1,43 @@
+<div class="field">
+  <label>
+    {{ label }}
+    @if(required){
+    <span class="text-danger text-bold"> * </span>
+    }
+  </label>
+  <div class="input-control has-icon">
+    <input type="text"
+      class="input"
+      name="{{ uniqueId }}"
+      bsDaterangepicker
+      [(ngModel)]="inputRange"
+      (ngModelChange)="onDateRangeChange()" 
+      [required]="required" 
+      [bsConfig]="{
+        showWeekNumbers: false,
+        rangeInputFormat: 'DD MMM YYYY',
+        dateInputFormat: 'DD MMM YYYY',
+        isAnimated: true,
+        adaptivePosition: true
+      }" 
+      [placeholder]="placeholder" 
+      #daterangepicker="bsDaterangepicker" 
+      #daterange="ngModel" />
+
+    <div class="form-icon-right" (click)="daterangepicker.toggle()" [attr.aria-expanded]="daterangepicker.isOpen">
+      @if (showClearBtn) {
+        <span class="date-clearable" tooltip="Clear" (click)="clearDateRange()">
+          <span aria-hidden="true">×</span>
+        </span>
+      }
+      <i aria-hidden="true" class="mdi mdi-calendar-blank"></i>
+    </div>
+    @if (daterange.invalid && (daterange.dirty || daterange.touched)) {
+      <div class="error-msg-text" >
+        @if (daterange.hasError('required')) {
+          <span>This field is required.</span>
+        }
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,146 @@
+<app-page-header [headerLabel]="'Batch Info'"></app-page-header>
+<div class="mx-2">
+    <form #batchInfoForm="ngForm">
+        <div class="form-fieldset">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                    <div class="field">
+                        <label>
+                            Report Type
+                        </label>
+                        <app-ng-select class="col-12" [items]="reportTypeList" [(value)]="productionreport.ReportType"
+                            [bindLabel]="'label'" [bindValue]="'value'" [required]="true">
+                        </app-ng-select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4 mt-3">
+                    <div class="center">
+                        <div class="two-button">
+                            <app-form-btn-pr [btnLabel]="'View'" (btnClick)="onViewBtnClick()"></app-form-btn-pr>
+                            <app-btn-pr [btnLabel]="'Export'" [class]="'footer-btn'" [disabled]="!(reportDataRes)"
+                                (btnClick)="onExportBtnClick()">
+                            </app-btn-pr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                    <div class="card filter-card">
+                        <div class="card-body">
+                            <app-batch-filter-form [lineList]="pageData.LineNumber" [filterFormData]="productionreport">
+                            </app-batch-filter-form>
+                            <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                                <app-checkbox [label]="'WareHouse Report'"
+                                    [(value)]="productionreport.WareHouseReport"></app-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8 col-lg-8 col-sm-8">
+                    <div class="card grid-card">
+                        <div class="card-body">
+                            <div class="table-responsive pb-2">
+                                <table class="table oee-custom-table table-responsive text-center">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" width="100">station Details</th>
+                                            <th class="text-center" width="100">value</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td width="100">GTIN</td>
+                                            <td width="100">{{serilizationData.GTIN}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100">Line Number</td>
+                                            <td width="100">{{serilizationData.LineNumber}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100">Product Name</td>
+                                            <td width="100">{{serilizationData.ProductName}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100">Expiry Date</td>
+                                            <td width="100">{{serilizationData.ExpiryDate}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100">Layers</td>
+                                            <td width="100">{{serilizationData.Layers}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100">Items In Layer</td>
+                                            <td width="100">{{serilizationData.ItemsinLayer}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100">Regulatory</td>
+                                            <td width="100">{{serilizationData.Regulatory}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100">Packaging Type</td>
+                                            <td width="100">{{serilizationData.PackagingType}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="table-responsive pt-2 border-top">
+                                <table class="table oee-custom-table table-responsive text-center">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" width="100">Status</th>
+                                            <th class="text-center" width="100">Quantity</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td width="100">Pending</td>
+                                            <td width="100">{{countData.Pending}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100">Printed</td>
+                                            <td width="100">{{countData.Printed}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100">Accepted</td>
+                                            <td width="100">{{countData.Accepted}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100">Rejected</td>
+                                            <td width="100">{{countData.Rejected}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100">Sample</td>
+                                            <td width="100">{{countData.Sample}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100">Specimen</td>
+                                            <td width="100">{{countData.Specimen}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100">Taught</td>
+                                            <td width="100">{{countData.Taught}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100">Damaged</td>
+                                            <td width="100">{{countData.Damaged}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100">Orphan</td>
+                                            <td width="100">{{countData.Orphan}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td width="100">Total</td>
+                                            <td width="100">{{countData.Total}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,67 @@
+<div class="table-responsive list-view">
+    <table class="table oee-custom-table table-responsive text-center">
+        <ng-container *ngIf="reportType == reportTypeEnum.SERAILIZATION; else showPcrTable">
+            <thead>
+                <tr>
+                    <th class="text-center" width="100">Serial Number</th>
+                    <th class="text-center" width="100">Status</th>
+                    <th class="text-center" width="200">Date Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (serialData of serializationDataList| paginate
+                : {
+                itemsPerPage: pageSize,
+                currentPage: currentPage,
+                totalItems: totalCount
+                }; track serialData) {
+                <tr>
+                    <td width="100">{{serialData.SerialNumber}}</td>
+                    <td width="100">{{serialData.Status}}</td>
+                    <td width="200">{{serialData.DateTime}}</td>
+                </tr>
+                }
+            </tbody>
+        </ng-container>
+        <ng-template #showPcrTable>
+            <thead>
+                <tr>
+                    <th class="text-center" width="100">Carton</th>
+                    <th class="text-center" width="100">Shipper</th>
+                    <th class="text-center" width="200">Pallet</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (pcrData of pcrDataList| paginate
+                : {
+                itemsPerPage: pageSize,
+                currentPage: currentPage,
+                totalItems: totalCount
+                }; track pcrData) {
+                <tr>
+                    <td width="100">{{pcrData.Child}}</td>
+                    <td width="100">{{pcrData.Parent}}</td>
+                    <td width="200">{{pcrData.Grandparent}}</td>
+                </tr>
+                }
+            </tbody>
+        </ng-template>
+    </table>
+</div>
+<div class="page-header border-0">
+    <div class="page-header-inner footer justify-content-start">
+        <div class="left">
+            <span>
+                {{
+                currentPage
+                | paginationCount
+                : pageSize
+                : totalCount
+                }}
+            </span>
+        </div>
+        <div class="right ms-auto">
+            <app-pagination (pageChange)="onPageChange($event)"> </app-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="field">
+    <label>{{ label }}
+        @if (required) {
+        <span class="text-danger text-bold"> * </span>
+        }
+    </label>
+    <div class="input-control">
+        <ul>
+        @for (email of emails; track emails; let i =$index) {
+        <li>
+            <span class="email_name">{{ email }}</span>
+            <button class="multiple-emails-close" (click)="removeEmail(i)" type="button" title="Remove">✖</button>
+          </li>
+        }
+        </ul>
+        <input #emailInput
+               type="text"
+               class="multiple-emails-input"
+               (keyup.enter)="addEmail(emailInput)"
+               placeholder="Add email..."    
+        />
+        @if (invalidEmails.length > 0){
+            @for (email  of invalidEmails; track $index) {
+                <span> "{{ email }}" is not a valid email address.</span>
+            }
+
+        }
+
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<app-page-header [headerLabel]="'Update Batch'"></app-page-header>
+<div class="form-layout-input">
+    <form #addBatchForm="ngForm">
+        <div class="form-outer">
+            <div class="form-fieldset">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Account Name'" [(value)]="editBatch.AccountName" [disabled]="true"></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Batch Name'" [(value)]="editBatch.BatchName" [disabled]="true"></app-text>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'GTIN'" [(value)]="editBatch.GTIN" [disabled]="true"></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Expiry Date'" [(value)]="editBatch.ExpiryDate" [disabled]="true"></app-text>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Remaining Quantity'" [(value)]="editBatch.RemainingQuantity" [disabled]="true"></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Regulatory'" [(value)]="editBatch.Regulatory" [disabled]="true"></app-text>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Packaging Level'" [(value)]="editBatch.PackagingLevel" [disabled]="true"></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Batch Status'" [(value)]="editBatch.BatchStatus" [disabled]="true"></app-text>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Company Prefix'" [(value)]="editBatch.CompanyPrefix" [disabled]="true"></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Product Name'" [(value)]="editBatch.ProductName" [disabled]="true"></app-text>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Account Name'" [(value)]="editBatch.AccountName" [disabled]="true"></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Layer'" [(value)]="editBatch.Layers"></app-text>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Item In Layer'" [(value)]="editBatch.ItemsInLayer"></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Quantity'" [(value)]="quantity"></app-text>
+                    </div>
+                </div>
+                <app-form-footer [btnLabel]="'Edit Batch'" (btnClick)="onEditBtnClick()"></app-form-footer>
+            </div>
+        </div>
+    </form>
+</div>

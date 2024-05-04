@@ -1,0 +1,7 @@
+<app-page-header [headerLabel]="'Edit SSCC'"></app-page-header>
+<app-sscc-form
+  [sscc]="sscc"
+  (btnClick)="editSscc($event)"
+  [isUpdate]="true"
+  [btnLabel]="'Edit'"
+></app-sscc-form>

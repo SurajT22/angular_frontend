@@ -1,0 +1,70 @@
+<app-page-header [headerLabel]="'Edit Product List'"></app-page-header>
+<div class="mx-2">
+    <form #updateProductForm="ngForm">
+        <div class="form-fieldset">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                    <app-text [disabled]="true" [label]="'Product Name'" [(value)]="updateProduct.ProductName"></app-text>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                    <app-text [disabled]="true" [label]="'GTIN'" [(value)]="updateProduct.GTIN"></app-text>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-12">
+                    <div class="form-fieldset mt-4">
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                                <app-station-detail-form [isUpdate]="true" [(itemCode)]="updateProduct.ItemCode" [ssccPrefixList]="ssccPrefixList"
+                                    [stationDetail]="stationDetails"></app-station-detail-form>
+                                <div class="row mt-3">
+                                    <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                                        <div class="field">
+                                            <label>
+                                                Third Party Server
+                                                <span _ngcontent-ng-c1278601045="" class="text-danger text-bold"> * </span>
+                                            </label>
+                                            <app-ng-select class="col-12" [items]="thirdPartyServerList"
+                                                [(value)]="thirdPartyServer" [required]="true">
+                                            </app-ng-select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                                        <div class="field">
+                                            <label>
+                                                Account Name
+                                                <span _ngcontent-ng-c1278601045="" class="text-danger text-bold"> * </span>
+                                            </label>
+                                            <app-ng-select class="col-12" [items]="accountNameList"
+                                                [(value)]="updateProduct.AccountName" [required]="true">
+                                            </app-ng-select>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                                        <div class="field">
+                                            <app-text [disabled]="true" [label]="'MAH GLN Number'" [(value)]="updateProduct.MAHGLNNumber"></app-text>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                                        <div class="field">
+                                            <app-text [label]="'Customer Product Code'" [(value)]="updateProduct.CustomerProductCode"></app-text>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                                <app-hrf-detail-form [hrfDetail]="stationDetails.hrfDetails"></app-hrf-detail-form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="d-flex justify-content-end mt-2">
+                <div>
+                    <app-form-btn-pr [btnLabel]="'Update'" (btnClick)="onEditBtnClick()"></app-form-btn-pr>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

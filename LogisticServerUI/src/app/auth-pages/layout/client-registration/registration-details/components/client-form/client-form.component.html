@@ -1,0 +1,83 @@
+<div class="form-layout-input">
+    <form #clientForm="ngForm">
+        <div class="form-outer">
+            <div class="form-fieldset">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'IP Address'" [(value)]="client.Ip" [required]="true"></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'MAC Address'" [(value)]="client.MacId" [required]="true"></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Line Number'" [(value)]="client.LineNumber" [required]="true"></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Plant Name'" [(value)]="client.PlantName" [required]="true"></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Location'" [(value)]="client.Location" [required]="true"></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Status
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+                            <app-ng-select class="col-12"
+                                [items]="[registrationStatusEnum.Registered,registrationStatusEnum.NotRegistered]"
+                                [required]="true" [(value)]="client.Status" [clearable]="true">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Packaging Level
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+                            <app-ng-select class="col-12" [items]="packagingLevelList" [required]="true"
+                                [(value)]="client.PackagingLevel" [clearable]="true">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Regulatory
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+                            <app-ng-select class="col-12" [items]="RegulatoryList" [required]="true"
+                                [(value)]="client.Regulatory" [clearable]="false" [bindLabel]="'label'"
+                                [bindValue]="'value'" [disabled]="isUpdate">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                          <label>
+                            System Name
+                            <span _ngcontent-ng-c1278601045="" class="text-danger text-bold"> * </span>
+                          </label>
+                          <app-ng-select class="col-12" [items]="SystemNameList" [bindLabel]="'label'" [bindValue]="'value'"
+                            [(value)]="client.SystemName"  (selectonChange)="onSystemNameChange($event)" [required]="true">
+                          </app-ng-select>
+                        </div>
+                      </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                          <label>
+                            System Model
+                            <span class="text-danger text-bold"> * </span>
+                          </label>
+                          <app-ng-select class="col-12" [items]="SystemModelList" [bindLabel]="'label'" [bindValue]="'value'"
+                          [(value)]="client.SystemModel" >
+                          </app-ng-select>
+                        </div>
+                      </div>
+                    <app-form-footer [btnLabel]="btnLabel" (btnClick)="onBtnClick()"></app-form-footer>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

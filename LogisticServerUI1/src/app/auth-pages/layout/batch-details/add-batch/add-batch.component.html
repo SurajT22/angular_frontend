@@ -1,0 +1,161 @@
+<app-page-header [headerLabel]="'Add Batch'"></app-page-header>
+<div class="form-layout-input">
+    <form #addBatchForm="ngForm">
+        <div class="form-outer">
+            <div class="form-fieldset">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Third party
+                                <span class="text-danger text-bold ng-star-inserted"> * </span>
+                            </label>
+                            <app-ng-select class="col-12" [required]="true" [items]="thirdPartyList"
+                                [(value)]="addBatch.thirdParty" [bindLabel]="'label'" [bindValue]="'value'"
+                                (selectonChange)="onThirdPartyChange()">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Station Name
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+                            <app-ng-select class="col-12" [required]="true" [items]="stationTypeList"
+                                [(value)]="addBatch.stationType" [bindLabel]="'label'" [bindValue]="'value'"
+                                (selectonChange)="onBatchTypeChange()">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                </div>
+                @if (addPageData) {
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Device ID
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+                            <app-ng-select class="col-12" [items]="addPageData.DeviceID" [bindLabel]="'label'"
+                                [(value)]="addBatch.deviceId" [bindValue]="'value'" [required]="true">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Packaging Type
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+                            <app-ng-select class="col-12" [required]="true" [items]="packagingTypeList"
+                                [(value)]="addBatch.packagingType" [bindLabel]="'label'" [bindValue]="'value'">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Account List
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+                            <app-ng-select class="col-12" [items]="addPageData.AccountList"
+                                [(value)]="addBatch.accountName" [required]="true">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Regulatory
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+                            <app-ng-select class="col-12" [required]="true" [items]="RegulatoryList" [bindLabel]="'label'" [bindValue]="'value'"
+                                [(value)]="addBatch.regulatory">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Product List
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+                            <app-ng-select class="col-12" [required]="true" [items]="addPageData.ProductList"
+                                [(value)]="addBatch.productName" (selectonChange)="onProductChange()">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Batch List
+                                <span class="text-danger text-bold"> * </span>
+                            </label>
+                            <app-ng-select class="col-12" [items]="addPageData.BatchList" [bindLabel]="'label'"
+                                [(value)]="addBatch.batchName" [bindValue]="'value'" [required]="true">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'GTIN'" [(value)]="addBatch.gtin" [disabled]="true"></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'SSCC Prefix'" [(value)]="addBatch.ssccPrefix" [disabled]="true"></app-text>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-date [displayDateFormat]="'DDMMYY'" [required]="true" [label]="'Expiry Date(DDMMYY)'" 
+                            [(value)]="addBatch.expiryDate"></app-date>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Filter Value'" [(value)]="addBatch.filterValue"
+                            [disabled]="true"></app-text>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [required]="true" [label]="'Layers'" [(value)]="addBatch.layers"></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Barcode Type'" [value]="addBatch.barcodeType | barcodeTypeEnum"
+                            [disabled]="true"></app-text>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [required]="true" [label]="'Item In Layers'"
+                            [(value)]="addBatch.itemInLayer"></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'PO/DN No.'" [(value)]="addBatch.poDnNo" [disabled]="true"></app-text>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [required]="true" [label]="'Quantity'" [(value)]="addBatch.quantity"></app-text>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-checkbox [label]="'Direct Inward'" [(value)]="addBatch.directInward">
+
+                        </app-checkbox>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                        <app-hrf-detail-form [hrfDetail]="addBatch.hrfDetails" [readonly]="true"></app-hrf-detail-form>
+                    </div>
+                </div>
+                <app-form-footer [btnLabel]="'Add Batch'" (btnClick)="onBtnClick()"></app-form-footer>
+                }
+            </div>
+        </div>
+    </form>
+</div>

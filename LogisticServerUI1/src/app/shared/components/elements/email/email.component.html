@@ -1,0 +1,31 @@
+<div class="field">
+  <label
+    >{{ label }}
+    @if (required) {
+      <span class="text-danger text-bold"> * </span>
+    }
+  </label>
+  <div class="input-control">
+    <input
+      class="input"
+      type="email"
+      [(ngModel)]="value"
+      name="{{ uniqueId }}" 
+      #emailId="ngModel"
+      pattern="^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$"
+      [required]="required"
+      (ngModelChange)="valueChange.emit(value)"
+      [disabled]="disabled"
+    />
+    @if (emailId.invalid && (emailId.dirty || emailId.touched)) {
+      <div class="error-msg-text">
+        @if (emailId.hasError("required")) {
+          <span>This field is required.</span>
+        }
+        @if (emailId.hasError("pattern")) {
+          <span>{{ label }} format is incorrect.</span>
+        }
+      </div>
+    }
+  </div>
+</div>

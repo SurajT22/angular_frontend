@@ -1,0 +1,21 @@
+.filter-card,.grid-card{
+    height: calc(100vh - 180px) !important;
+}
+// 180px
+.grid-card{
+    .card-body{
+        display: flex;
+        flex-direction: column;
+        .table-responsive{
+            flex-grow: 1;
+        }
+    }
+}
+
+.oee-custom-table {
+    height: 100% !important;
+    tbody{
+        height: 100% !important;
+    }
+}
+

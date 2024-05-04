@@ -1,0 +1,100 @@
+<app-page-header [headerLabel]="'Product List'" [btnLink]="['add']" [btnLabel]="'Add Product'"
+    [btnVisible]="true"></app-page-header>
+<div class="mx-2">
+    <form #listProductForm="ngForm">
+        <div class="form-fieldset">
+            <div class="row">
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                    <div class="field">
+                        <label>
+                            Product Name
+                        </label>
+                        <app-ng-select class="col-12" [items]="productList" 
+                            [(value)]="selectedProductName" [required]="true"
+                            (selectonChange)="onProductSelectionChange()">
+                        </app-ng-select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4">
+                    <div class="field">
+                        <label>
+                            GTIN
+                        </label>
+                        <app-ng-select class="col-12" [items]="gtinList"
+                            [(value)]="selectedGtin" [required]="true"
+                            (selectonChange)="onGtinSelectionChange()">
+                        </app-ng-select>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 col-lg-4 col-sm-4 pe-0">
+                    <div class="d-flex flex-column justify-content-center" style="height: 100%;">
+                        <div class="d-flex justify-content-end">
+                            <app-form-btn-pr 
+                                [btnLabel]="'Update'"
+                                (btnClick)="onUpdateBtnClick()">
+                            </app-form-btn-pr>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                    <div class="card grid-card">
+                        <div class="card-body mb-4">
+                            <div class="table-responsive pb-2">
+                                <table class="table oee-custom-table table-responsive text-center">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" width="100">station Details</th>
+                                            <th class="text-center" width="100">value</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @for (station of stationDetails; track station) {
+                                        <tr>
+                                            <td width="100">{{station.Name}}</td>
+                                            <td width="100">{{station.Value}}</td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="table-responsive pt-2 border-top">
+                                <table class="table oee-custom-table table-responsive text-center">
+
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" width="100">HRF Name</th>
+                                            <th class="text-center" width="100">HRF Value</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @for (hrf of hrfDetails; track hrf) {
+                                        <tr>
+                                            <td width="100">{{hrf.Name}}</td>
+                                            <td width="100">{{hrf.Value}}</td>
+
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="d-flex justify-content-end mt-2">
+                <div>
+                    <app-form-btn-pr [btnLabel]="'Import'"
+                        (btnClick)="onSaveBtnClick()"></app-form-btn-pr>
+                    <app-form-btn-pr [btnLabel]="'Export'"
+                        (btnClick)="onSaveBtnClick()"></app-form-btn-pr>
+                </div>
+            </div> -->
+        </div>
+    </form>
+</div>

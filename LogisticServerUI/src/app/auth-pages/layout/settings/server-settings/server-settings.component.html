@@ -1,0 +1,54 @@
+<app-page-header [headerLabel]="'Server Settings'"></app-page-header>
+
+<div class="d-flex align-items-stretch">
+    <div class="d-flex flex-column justify-content-center align-items-center">
+        <div class="side-btn-container">
+            <button class="btn btn-outline-primary" (click)="onPrefixBtnClick()">
+                Prefix Details <span class="mdi mdi-chevron-right fs-4"></span>
+            </button>
+        </div>
+        <div class="side-btn-container">
+            <button class="btn btn-outline-primary" (click)="onSsccBtnClick()">
+                SSCC Details <span class="mdi mdi-chevron-right fs-4"></span>
+            </button>
+        </div>
+    </div>
+    <div class="flex-grow-1 px-4">
+        <form #systemSettingForm="ngForm">
+            <div class="form-fieldset">
+                @if(authService.IsSuperAdmin){
+                <div class="row">
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                        <app-text [label]="'UID Length'" [required]="true" [(value)]="uidLength"></app-text>
+                    </div>
+                </div>
+                }
+                <div class="row">
+                    <div class="col-12">
+                        <tabset #uidTabs>
+                            <tab id="{{uidTypeEnum.AlphaNumeric}}" heading="Alpha Numeric UIDs" (selectTab)="onUidTabSelect($event)">
+                                <app-uid-details-form [uidLengthList]="availableUidLength.AvailableAlphaNumUidLength" [uidType]="uidTypeEnum.AlphaNumeric"></app-uid-details-form>
+                            </tab>
+                            @if (availableUidLength.NumericUidFacility) {
+                            <tab id="{{uidTypeEnum.Numeric}}" heading="Numeric UIDs" (selectTab)="onUidTabSelect($event)">
+                                <app-uid-details-form [uidLengthList]="availableUidLength.AvailableNumericUidLength" [uidType]="uidTypeEnum.Numeric"></app-uid-details-form>
+                            </tab>
+                            }
+                        </tabset>
+                    </div>
+                </div>
+                @if(authService.IsSuperAdmin){
+                <div class="d-flex justify-content-end">
+                    <div>
+                        <app-form-btn-pr [btnLabel]="'Save'" (btnClick)="onSaveBtnClick()"></app-form-btn-pr>
+                    </div>
+                </div>
+                }
+            </div>
+        </form>
+    </div>
+</div>
+
+<ng-template>
+
+</ng-template>

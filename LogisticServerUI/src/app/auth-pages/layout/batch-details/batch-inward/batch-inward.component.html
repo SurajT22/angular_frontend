@@ -1,0 +1,193 @@
+<app-page-header [headerLabel]="'Batch Inward Process'"></app-page-header>
+<div class="form-layout-input">
+    <form #batchInwardForm="ngForm">
+        <div class="form-outer">
+            <div class="form-fieldset">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Third party
+                                <span class="text-danger text-bold ng-star-inserted"> * </span>
+                            </label>
+                            <app-ng-select class="col-12" [required]="true" [items]="thirdPartyList"
+                                [(value)]="selectedThirdParty" [bindLabel]="'label'" [bindValue]="'value'"
+                                (selectonChange)="onThirdPartyChange()">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                </div>
+                @if(selectedThirdParty){
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Regulatory
+                                <span class="text-danger text-bold ng-star-inserted"> * </span>
+                            </label>
+                            <app-ng-select class="col-12" [items]="RegulatoryList"
+                                [(value)]="inwardBatch.regulatory" [required]="true">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Line Number
+                                <span class="text-danger text-bold ng-star-inserted"> * </span>
+                            </label>
+                            <app-ng-select class="col-12" [items]="inwardPageData.LineNumber"
+                                [(value)]="inwardBatch.lineNumber"  [required]="true">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Inward Type
+                                <span class="text-danger text-bold ng-star-inserted"> * </span>
+                            </label>
+                            <app-ng-select class="col-12" [required]="true" [bindLabel]="'label'" [bindValue]="'value'"
+                                [items]="inwardTypeList" [(value)]="inwardBatch.inwardType"
+                                (selectonChange)="onInwardTypeChange()">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Account List
+                                <span class="text-danger text-bold ng-star-inserted"> * </span>
+                            </label>
+                            <app-ng-select class="col-12" [required]="true" [items]="inwardPageData.AccountList"
+                                [(value)]="inwardBatch.accountName" (selectonChange)="onAccountChange()">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                </div>
+                @if(inwardBatch.inwardType != inwardTypeEnum.FILE_BASED){
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field" style="margin: 20px 0px; padding-top: 10px;">
+                            <app-checkbox [label]="'Scanner'" [(value)]="inwardBatch.scanner"></app-checkbox>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <app-multi-line [label]="'Scanned Data'" [rows]="3" [required]="inwardBatch.scanner"
+                            [disabled]="!inwardBatch.scanner" [(value)]="inwardBatch.scannedData"
+                            (keyDown)="onScannedKeyDown($event)">
+                        </app-multi-line>
+                    </div>
+                </div>
+                }
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field">
+                            <label>
+                                Product List
+                                @if(inwardBatch.inwardType != inwardTypeEnum.FILE_BASED && !inwardBatch.scanner){
+                                <span class="text-danger text-bold ng-star-inserted"> * </span>
+                                }
+                            </label>
+                            <app-ng-select class="col-12"
+                                [required]="(inwardBatch.inwardType != inwardTypeEnum.FILE_BASED && !inwardBatch.scanner)"
+                                [disabled]="(inwardBatch.inwardType == inwardTypeEnum.FILE_BASED || inwardBatch.scanner)"
+                                [items]="inwardPageData.ProductList" [(value)]="inwardBatch.productName"
+                                (selectonChange)="onProductChange()">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'Batch Name'"
+                            [required]="(inwardBatch.inwardType != inwardTypeEnum.FILE_BASED && !inwardBatch.scanner)"
+                            [disabled]="(inwardBatch.inwardType == inwardTypeEnum.FILE_BASED || inwardBatch.scanner)"
+                            [(value)]="inwardBatch.batchName">
+                        </app-text>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-md-6 col-lg-6 col-sm-6">
+                        <app-text [label]="'GTIN'" [value]="inwardBatch.gtin" [disabled]="true"></app-text>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-md-6 col-lg-6 col-sm-6">
+                        <app-date [displayDateFormat]="'DDMMYY'" [label]="'Expiry Date(DDMMYY)'"
+                            [(value)]="inwardBatch.expiryDate"
+                            [required]="(inwardBatch.inwardType != inwardTypeEnum.FILE_BASED && !inwardBatch.scanner)"
+                            [disabled]="(inwardBatch.inwardType == inwardTypeEnum.FILE_BASED || inwardBatch.scanner)">
+                        </app-date>
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-6 col-sm-6">
+                        <app-date [displayDateFormat]="'YYYY-MM-DD'" [required]="true" [label]="'MFG(YYYY-MM-DD)'"
+                            [(value)]="inwardBatch.mfg">
+                        </app-date>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6 col-md-6 col-lg-6 col-sm-6">
+                        <ng-container *ngIf="inwardBatch.newPo; else showPoList">
+                            <app-text [label]="'PO Number'" [required]="true"
+                                [(value)]="inwardBatch.poNumber"></app-text>
+                        </ng-container>
+                        <ng-template #showPoList>
+                            <div class="field">
+                                <label>
+                                    PO Number
+                                    <span class="text-danger text-bold ng-star-inserted"> * </span>
+                                </label>
+                                <app-ng-select class="col-12" [items]="inwardPageData.PONumber"
+                                    [(value)]="inwardBatch.poNumber" [required]="true">
+                                </app-ng-select>
+                            </div>
+                        </ng-template>
+                    </div>
+                    <div class="col-6 col-md-6 col-lg-6 col-sm-6">
+                        <div class="field" style="margin: 20px 0px; padding-top: 10px;">
+                            <app-checkbox [label]="'New PO ?'" [(value)]="inwardBatch.newPo"></app-checkbox>
+                        </div>
+                    </div>
+                </div>
+                @if(inwardBatch.inwardType == inwardTypeEnum.FILE_BASED){
+                <div class="row">
+                    <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                        <div class="field">
+                            <label>
+                                File List
+                                <span class="text-danger text-bold ng-star-inserted"> * </span>
+                            </label>
+                            <app-ng-select class="col-12" [items]="fileList" [(value)]="selectedFile" [required]="true" (selectonChange)="onFileChange()">
+                            </app-ng-select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                        <div class="field d-flex justify-content-end">
+                            <app-btn-pr [btnLabel]="'Download file'"
+                                [disabled]="(selectedFile == undefined || selectedFile == '')"
+                                (btnClick)="onDownloadBtnClick()">
+                            </app-btn-pr>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-4">
+                        <div class="field">
+                            <app-btn-pr [btnLabel]="'Verify file'" [disabled]="(downloadFileData == undefined)"
+                                (btnClick)="onVerifyBtnClick()">
+                            </app-btn-pr>
+                        </div>
+                    </div>
+                </div>
+                }
+                <app-form-footer [btnLabel]="'Import'" (btnClick)="onImportBtnClick()"
+                    [btnPrDisabled]="(inwardBatch.inwardType == inwardTypeEnum.FILE_BASED && verifyFileData == undefined)">
+                </app-form-footer>
+                }
+            </div>
+        </div>
+    </form>
+</div>
+
+<app-inward-verify-dialog></app-inward-verify-dialog>

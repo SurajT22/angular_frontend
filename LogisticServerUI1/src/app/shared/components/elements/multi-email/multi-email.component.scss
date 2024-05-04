@@ -1,0 +1,32 @@
+.multiple-emails-container {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: text;
+  }
+  
+  .multiple-emails-input {
+    border: 0;
+    outline: none;
+    width: calc(100% - 10px);
+    margin-bottom: 5px;
+  }
+  
+  .multiple-emails-email {
+    display: inline-block;
+    background-color: #f3f7fd;
+    color: #333;
+    border: 1px solid #bbd8fb;
+    border-radius: 3px;
+    padding: 2px 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .multiple-emails-close {
+    margin-left: 5px;
+    color: #999;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }

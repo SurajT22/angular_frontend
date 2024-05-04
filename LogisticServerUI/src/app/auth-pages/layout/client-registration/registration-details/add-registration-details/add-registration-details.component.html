@@ -1,0 +1,87 @@
+<app-page-header [headerLabel]="'Add Client'"></app-page-header>
+
+<div class="form-layout-input">
+  <form #addBatchForm="ngForm">
+    <div class="form-outer">
+      <div class="form-fieldset">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+            <div class="field">
+              <label>
+                Client Ip
+                <span class="text-danger text-bold"> * </span>
+              </label>
+              <app-ng-select class="col-12" [required]="true" [items]="ClientIpList" [bindLabel]="'label'"
+                [bindValue]="'value'" [(value)]="addClientRegistration.Ip" (selectonChange)="onClientIpChange()">
+              </app-ng-select>
+            </div>
+          </div>
+          @if (addClientRegistration) {
+          <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+            <app-text [label]="'MAC Address'" [(value)]="addClientRegistration.MacId" [required]="true"></app-text>
+          </div>
+          <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+            <app-text [label]="'Line Number'" [(value)]="addClientRegistration.LineNumber" [required]="true"></app-text>
+          </div>
+          <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+            <app-text [label]="'Plant Name'" [(value)]="addClientRegistration.PlantName" [required]="true"></app-text>
+          </div>
+          <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+            <app-text [label]="'Location'" [(value)]="addClientRegistration.Location" [required]="true"></app-text>
+          </div>
+          <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+            <app-text [label]="'Status'" [(value)]="addClientRegistration.Status" [required]="true"></app-text>
+          </div>
+          <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+            <div class="field">
+              <label>
+                Packaging Level
+                <span class="text-danger text-bold"> * </span>
+              </label>
+              <app-ng-select class="col-12" [items]="packagingLevelList" [required]="true"
+                [(value)]="addClientRegistration.PackagingLevel" [clearable]="true">
+              </app-ng-select>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+            <div class="field">
+              <label>
+                Regulatory
+                <span class="text-danger text-bold"> * </span>
+              </label>
+              <app-ng-select class="col-12" [items]="RegulatoryList" [required]="true"
+                [(value)]="addClientRegistration.Regulatory" [clearable]="false">
+              </app-ng-select>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+            <div class="field">
+              <label>
+                System Name
+                <span _ngcontent-ng-c1278601045="" class="text-danger text-bold"> * </span>
+              </label>
+              <app-ng-select class="col-12" [items]="SystemNameList" [bindLabel]="'label'" [bindValue]="'value'"
+                [(value)]="addClientRegistration.SystemName"  (selectonChange)="onSystemNameChange($event)" [required]="true">
+              </app-ng-select>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+            <div class="field">
+              <label>
+                System Model
+                <span class="text-danger text-bold"> * </span>
+              </label>
+              <app-ng-select class="col-12" [items]="SystemModelList" [bindLabel]="'label'" [bindValue]="'value'"
+              [(value)]="addClientRegistration.SystemModel" >
+              </app-ng-select>
+            </div>
+          </div>
+          <app-form-footer [btnLabel]="'Add'" (btnClick)="addClient()"></app-form-footer>
+          }
+        </div>
+
+
+      </div>
+    </div>
+  </form>
+</div>

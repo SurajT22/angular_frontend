@@ -1,0 +1,148 @@
+<app-page-header [headerLabel]="'Master Settings'"></app-page-header>
+
+<div class="form-layout-input">
+    <form #masterSettingsForm="ngForm">
+        <div class="form-fieldset">
+
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 pe-4">
+                    <div class="field">
+                        <label>
+                            System Language
+                        </label>
+                        <app-ng-select class="col-12" [items]="systemLanguageList" [required]="true"
+                            [(value)]="mastersetting.SystemLanguage" [clearable]="false">
+                        </app-ng-select>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 ps-4 border-start border-color-gray">
+                    <div class="field" style="margin: 20px 0px; padding-top: 10px;">
+                        <app-checkbox [label]="'Thired Party Settings'"
+                            [(value)]="mastersetting.ThirdPartySettings"></app-checkbox>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 pe-4">
+                    <div class="field">
+                        <label>
+                            Number Loading Type
+                        </label>
+                        <app-ng-select class="col-12" [items]="numberLoadingList" [required]="true"
+                            [(value)]="mastersetting.NumberLoading" [clearable]="false">
+                        </app-ng-select>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 ps-4 border-start border-color-gray">
+                    <div class="field" style="margin: 20px 0px; padding-top: 10px;">
+                        <app-checkbox [label]="'Active Directory'"
+                            [(value)]="mastersetting.ActiveDirectory"></app-checkbox>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 pe-4">
+                    <div class="field">
+                        <label>
+                            Upload Method
+                        </label>
+                        <app-ng-select class="col-12" [items]="uploadMethodList" [required]="true"
+                            [(value)]="mastersetting.UploadMethod" [clearable]="false">
+                        </app-ng-select>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 ps-4 border-start border-color-gray">
+                    <div class="field" style="margin: 20px 0px; padding-top: 10px;">
+                        <app-checkbox [label]="'Numeric UID Facility'"
+                            [(value)]="mastersetting.NumericUIDFacility"></app-checkbox>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 pe-4">
+                    <div class="field">
+                        <label>
+                            Third Party Multi Account
+                        </label>
+                        <app-ng-select class="col-12" [items]="thirdPartyMultiAccountList" [required]="true"
+                            [(value)]="mastersetting.ThirdPartyMultiAccount" [clearable]="false">
+                        </app-ng-select>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 ps-4 border-start border-color-gray">
+                    <div class="field" style="margin: 20px 0px; padding-top: 10px;">
+                        <app-checkbox [label]="'Digit Wise UID'" [(value)]="mastersetting.DigitWiseUID"></app-checkbox>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 pe-4">
+                    <div class="field">
+                        <label>
+                            AD Context Type
+                        </label>
+                        <app-ng-select class="col-12" [items]="contextTypeList" [required]="true"
+                            [(value)]="mastersetting.ContextType" [clearable]="false">
+                        </app-ng-select>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 ps-4 border-start border-color-gray">
+                    <div class="field" style="margin: 20px 0px; padding-top: 10px;">
+                        <app-checkbox [label]="'Extention Digit for SSCC'"
+                            [(value)]="mastersetting.DualSSCC"></app-checkbox>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 pe-4">
+                    <app-number [label]="'Temporary License Days'" [value]="mastersetting.TemporaryLicenseDays"
+                        (valueChange)="mastersetting.TemporaryLicenseDays=$event.toString()"
+                        [info]="'Minimum Temporary License Days is 1 & Maximum Temporary License Days is 100'" [min]="1" [max]="100"
+                        [required]="true"></app-number>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 ps-4 border-start border-color-gray">
+                    <div class="field" style="margin: 20px 0px; padding-top: 10px;">
+                        <app-checkbox [label]="'Dual Database'" [(value)]="mastersetting.DualDatabase"></app-checkbox>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 pe-4">
+                    <div class="field">
+                        <label>
+                            Import File Method
+                        </label>
+                        <app-ng-select class="col-12" [items]="importFileMethodList" [required]="true"
+                            [(value)]="mastersetting.ImportFileMethod" [clearable]="false">
+                        </app-ng-select>
+                    </div>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 ps-4 border-start border-color-gray">
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 pe-4">
+                    <app-number [label]="'Upload Delay'" [value]="mastersetting.UploadDelay"
+                        (valueChange)="mastersetting.UploadDelay=$event.toString()"
+                        [info]="'Minimum Upload Delay is 1 & Maximum Upload Delay is 15'"
+                        [required]="false"></app-number>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6 col-sm-6 ps-4 border-start border-color-gray">
+
+                </div>
+            </div>
+
+            <div class="form-header pb-0 mt-1 mb-0 border-bottom-0 border-top border-color-gray">
+                <div class="form-header-inner" style="justify-content: flex-end">
+                    <div class="right">
+                        <app-form-btn-pr [btnLabel]="'Save'" (btnClick)="onUpdateBtnClick()" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>

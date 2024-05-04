@@ -1,0 +1,8 @@
+<app-user-rights 
+    [headerLable]="'User Server Rights'" 
+    [isServerRights]="true"
+    [availablePermissions]="availablePermissions"
+    [selectedUserName]="selectedUserName" 
+    (selectedUserNameChange)="onUserChange($event)"
+    (btnClick)="onSaveBtnClick()">
+</app-user-rights>

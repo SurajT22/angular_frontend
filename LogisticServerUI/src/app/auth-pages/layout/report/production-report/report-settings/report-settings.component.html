@@ -1,0 +1,68 @@
+<app-page-header [headerLabel]="'Report Settings'"></app-page-header>
+
+<div class="mx-2">
+    <form #reportSettingsForm="ngForm">
+        <div class="form-fieldset">
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                    <div class="field">
+                        <app-text [required]="true" [label]="'Company Name'"
+                            [(value)]="reportSettings.CompanyName"></app-text>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-6 col-sm-6">
+                    <app-multi-line [required]="true" [label]="'Company Address'" [rows]="5"
+                        [(value)]="reportSettings.CompanyAddress">
+                    </app-multi-line>
+                </div>
+                <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                    <div class="row">
+                        <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                            <app-text [label]="'Station 1'" [(value)]="reportSettings.ColumnHeader.Station1"></app-text>
+                        </div>
+                        <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                            <app-text [label]="'Station 2'" [(value)]="reportSettings.ColumnHeader.Station2"></app-text>
+                        </div>
+                        <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                            <app-text [label]="'Station 3'" [(value)]="reportSettings.ColumnHeader.Station3"></app-text>
+                        </div>
+                        <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                            <app-text [label]="'Station 4'" [(value)]="reportSettings.ColumnHeader.Station4"></app-text>
+                        </div>
+                        <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                            <app-text [label]="'Station 5'" [(value)]="reportSettings.ColumnHeader.Station5"></app-text>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-12 col-sm-12">
+                    <div class="field">
+                        <div class="row">
+                            <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                                <app-checkbox [label]="'HRF 1'" [(value)]="reportSettings.HRFValue.HRF1"></app-checkbox>
+                            </div>
+                            <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                                <app-checkbox [label]="'HRF 2'" [(value)]="reportSettings.HRFValue.HRF2"></app-checkbox>
+                            </div>
+                            <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                                <app-checkbox [label]="'HRF 3'" [(value)]="reportSettings.HRFValue.HRF3"></app-checkbox>
+                            </div>
+                            <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                                <app-checkbox [label]="'HRF 4'" [(value)]="reportSettings.HRFValue.HRF4"></app-checkbox>
+                            </div>
+                            <div class="col-12 col-md-2 col-lg-2 col-sm-2">
+                                <app-checkbox [label]="'HRF 5'" [(value)]="reportSettings.HRFValue.HRF5"></app-checkbox>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row media-center">
+                    <div class="col-2 mr-change">
+                        <app-form-btn-pr [btnLabel]="'Save'" (btnClick)="onSaveBtnClick()"></app-form-btn-pr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

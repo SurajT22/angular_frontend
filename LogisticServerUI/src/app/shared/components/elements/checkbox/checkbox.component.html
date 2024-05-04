@@ -1,0 +1,14 @@
+<div class="custome-checkbox">
+  <input
+    [(ngModel)]="value"
+    [checked]="value"
+    [required]="required"
+    type="checkbox"
+    [disabled]="disabled"
+    id="{{ uniqueId }}"
+    #checkbox="ngModel"
+    name="{{ uniqueId }}"
+    (ngModelChange)="valueChange.emit(value)"
+  />
+  <label for="{{ uniqueId }}">{{ label }}</label>
+</div>

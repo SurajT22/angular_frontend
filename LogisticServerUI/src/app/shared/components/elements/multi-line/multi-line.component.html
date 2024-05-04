@@ -1,0 +1,28 @@
+<div class="field">
+  <label
+    >{{ label }}
+    @if (required) {
+      <span class="text-danger text-bold"> * </span>
+    }
+  </label>
+  <div class="input-control">
+    <textarea
+      class="form-control multi-text-font"
+      [(ngModel)]="value"
+      [required]="required"
+      name="{{ uniqueId }}"
+      #textarea="ngModel"
+      [disabled]="disabled"
+      [rows]="rows"
+      (keydown)="keyDown.emit($event)"
+      (ngModelChange)="valueChange.emit(value)"
+    ></textarea>
+    @if (textarea.invalid && (textarea.dirty || textarea.touched)) {
+      <div class="error-msg-text">
+        @if (textarea.hasError("required")) {
+          <span>This field is required.</span>
+        }
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,21 @@
+.filter-card{
+    overflow: auto;
+}
+
+
+.filter-card,.grid-card{
+    height: calc(100vh - 190px) !important;
+}
+
+.grid-card{
+    .card-body{
+        height: inherit;
+    }
+}
+
+.list-view {
+    height: calc(100% - 35px) !important;
+    table, tbody{
+        height: 100% !important;
+    }
+}
